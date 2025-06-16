@@ -1,0 +1,3615 @@
+===========================================
+OpenSSL Performance Test
+===========================================
+Date: Thu Jun  5 02:22:27 AM UTC 2025
+System: Linux special 6.6.0-72.6.0.56.oe2503.riscv64 #1 SMP PREEMPT Wed Mar 26 18:19:48 CST 2025 riscv64 riscv64 riscv64 GNU/Linux
+OpenSSL Version: OpenSSL 3.0.12 24 Oct 2023 (Library: OpenSSL 3.0.12 24 Oct 2023)
+CPU Cores: 8
+Hardware Acceleration: Not supported
+
+测试算法列表:
+Ciphers: aes-128-cbc aes-192-cbc aes-256-cbc aes-128-gcm aes-256-gcm des-ede3 rc4 chacha20 sm4
+Digests: md5 sha1 sha256 sha512 blake2b512 sm3
+Public Keys: rsa1024 rsa2048 rsa4096 dsa1024 ecdsap256 ecdsap384 eddsa
+Block Sizes: 16 1024 16384
+
+########################################### 
+测试对称加密算法 (9 个算法)
+###########################################
+
+--- 开始测试算法: aes-128-cbc ---
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 1, Accel: none)
+Command: openssl speed  aes-128-cbc
+-------------------------------------------
+Doing aes-128-cbc for 3s on 16 size blocks: 2671008 aes-128-cbc's in 2.98s
+Doing aes-128-cbc for 3s on 64 size blocks: 1043745 aes-128-cbc's in 2.97s
+Doing aes-128-cbc for 3s on 256 size blocks: 311699 aes-128-cbc's in 2.98s
+Doing aes-128-cbc for 3s on 1024 size blocks: 82039 aes-128-cbc's in 2.98s
+Doing aes-128-cbc for 3s on 8192 size blocks: 10421 aes-128-cbc's in 2.98s
+Doing aes-128-cbc for 3s on 16384 size blocks: 5214 aes-128-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-128-cbc      14340.98k    22491.47k    26776.83k    28190.58k    28647.26k    28666.50k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 aes-128-cbc
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++DT:aes-128-cbc:3:16
++R:2470838:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++R:2757260:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++R:2709152:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++R:2719664:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:64
++R:2707638:aes-128-cbc:3.000000
++R:2691474:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++DT:aes-128-cbc:3:64
++R:2713941:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++R:2696511:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:64
++R:996407:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:256
++R:1042431:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:256
++R:1041765:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:256
++R:1047358:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:256
++R:1046717:aes-128-cbc:3.010000
++R:1047672:aes-128-cbc:3.010000
++R:1037143:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:256
++DT:aes-128-cbc:3:256
++DT:aes-128-cbc:3:256
++R:1039343:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:256
++R:300744:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:1024
++R:304771:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:1024
++R:305612:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:1024
++R:308437:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:1024
++R:307368:aes-128-cbc:3.000000
++R:306989:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:1024
++R:304529:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:1024
++DT:aes-128-cbc:3:1024
++R:306290:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:1024
++R:79353:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79455:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79871:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79944:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79460:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79835:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:80062:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:79628:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:8192
++R:10095:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:16384
++R:10073:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:16384
++R:10126:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:16384
++R:10143:aes-128-cbc:3.000000
++DT:aes-128-cbc:3:16384
++R:10148:aes-128-cbc:3.010000
++R:10079:aes-128-cbc:3.010000
++R:10154:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:16384
++DT:aes-128-cbc:3:16384
++DT:aes-128-cbc:3:16384
++R:10074:aes-128-cbc:3.010000
++DT:aes-128-cbc:3:16384
++R:5056:aes-128-cbc:3.000000
++R:5030:aes-128-cbc:3.000000
++R:4934:aes-128-cbc:3.000000
++R:5078:aes-128-cbc:3.010000
++R:4895:aes-128-cbc:3.000000
++R:5068:aes-128-cbc:3.000000
++R:5066:aes-128-cbc:3.000000
++R:4902:aes-128-cbc:3.000000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:19:aes-128-cbc:13177802.67:21256682.67:25578227.24:27085824.00:27474498.34:27612501.33 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:19:aes-128-cbc:14448810.67:22224320.00:25992249.83:27262634.67:27558867.77:26946218.67 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:19:aes-128-cbc:14456685.71:22343637.33:26232515.61:27287552.00:27697152.00:27640515.61 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:19:aes-128-cbc:14354528.00:22052209.97:25986474.67:27122346.67:27430952.82:26733226.67 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:19:aes-128-cbc:14474352.00:22276082.39:26228736.00:27327829.33:27635072.43:27678037.33 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:19:aes-128-cbc:14440736.00:22255776.74:26196394.67:27250346.67:27618742.86:27667114.67 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:19:aes-128-cbc:14705386.67:22164645.85:26007125.33:27120640.00:27414623.26:27470506.67 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:19:aes-128-cbc:14381392.00:22172650.67:26049913.62:27179690.67:27417344.85:26771456.00 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+aes-128-cbc     114439.69k   176746.01k   208271.64k   217636.86k   220247.25k   218519.58k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 1, Accel: evp)
+Command: openssl speed -evp aes-128-cbc
+-------------------------------------------
+Doing AES-128-CBC for 3s on 16 size blocks: 2575994 AES-128-CBC's in 2.97s
+Doing AES-128-CBC for 3s on 64 size blocks: 1025998 AES-128-CBC's in 2.97s
+Doing AES-128-CBC for 3s on 256 size blocks: 308101 AES-128-CBC's in 2.99s
+Doing AES-128-CBC for 3s on 1024 size blocks: 80739 AES-128-CBC's in 2.98s
+Doing AES-128-CBC for 3s on 8192 size blocks: 10287 AES-128-CBC's in 2.98s
+Doing AES-128-CBC for 3s on 16384 size blocks: 5165 AES-128-CBC's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-128-CBC      13877.41k    22109.05k    26379.22k    27743.87k    28278.89k    28302.13k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 aes-128-cbc
+-------------------------------------------
+Doing aes-128-cbc for 3s on 16 size blocks: 2530764 aes-128-cbc's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+aes-128-cbc      13633.75k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 aes-128-cbc
+-------------------------------------------
+Doing aes-128-cbc for 3s on 1024 size blocks: 81765 aes-128-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+aes-128-cbc      28096.43k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 aes-128-cbc
+-------------------------------------------
+Doing aes-128-cbc for 3s on 16384 size blocks: 5165 aes-128-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+aes-128-cbc      28397.10k
+✅ Test completed successfully
+
+--- 完成算法: aes-128-cbc ---
+
+--- 开始测试算法: aes-192-cbc ---
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 1, Accel: none)
+Command: openssl speed  aes-192-cbc
+-------------------------------------------
+Doing aes-192-cbc for 3s on 16 size blocks: 2436547 aes-192-cbc's in 2.98s
+Doing aes-192-cbc for 3s on 64 size blocks: 922815 aes-192-cbc's in 2.98s
+Doing aes-192-cbc for 3s on 256 size blocks: 271269 aes-192-cbc's in 2.98s
+Doing aes-192-cbc for 3s on 1024 size blocks: 70643 aes-192-cbc's in 2.98s
+Doing aes-192-cbc for 3s on 8192 size blocks: 8939 aes-192-cbc's in 2.98s
+Doing aes-192-cbc for 3s on 16384 size blocks: 4481 aes-192-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-192-cbc      13082.13k    19818.85k    23303.65k    24274.64k    24573.25k    24636.48k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 aes-192-cbc
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++DT:aes-192-cbc:3:16
++R:2148630:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:64
++R:2142149:aes-192-cbc:3.010000
++R:2130300:aes-192-cbc:3.010000
++R:2130642:aes-192-cbc:3.010000
++R:2124455:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:64
++DT:aes-192-cbc:3:64
++DT:aes-192-cbc:3:64
++DT:aes-192-cbc:3:64
++R:2147105:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:64
++R:2102578:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:64
++R:2158383:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:64
++R:850305:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:256
++R:865280:aes-192-cbc:3.000000
++R:868018:aes-192-cbc:3.000000
++R:870787:aes-192-cbc:3.000000
++R:865322:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:256
++DT:aes-192-cbc:3:256
++DT:aes-192-cbc:3:256
++DT:aes-192-cbc:3:256
++R:865149:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:256
++R:862351:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:256
++R:871189:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:256
++R:247255:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:1024
++R:260914:aes-192-cbc:3.000000
++R:258493:aes-192-cbc:3.000000
++R:260899:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:1024
++DT:aes-192-cbc:3:1024
++DT:aes-192-cbc:3:1024
++R:252439:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:1024
++R:255194:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:1024
++R:260569:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:1024
++R:261134:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:1024
++R:67380:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:8192
++R:68413:aes-192-cbc:3.010000
++R:68710:aes-192-cbc:3.010000
++R:68881:aes-192-cbc:3.010000
++R:68869:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:8192
++DT:aes-192-cbc:3:8192
++DT:aes-192-cbc:3:8192
++DT:aes-192-cbc:3:8192
++R:69025:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:8192
++R:68787:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:8192
++R:69142:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:8192
++R:8670:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:16384
++R:8723:aes-192-cbc:3.000000
++R:8787:aes-192-cbc:3.000000
++R:8786:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:16384
++DT:aes-192-cbc:3:16384
++R:8743:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:16384
++DT:aes-192-cbc:3:16384
++R:8775:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:16384
++R:8768:aes-192-cbc:3.010000
++DT:aes-192-cbc:3:16384
++R:8781:aes-192-cbc:3.000000
++DT:aes-192-cbc:3:16384
++R:4384:aes-192-cbc:3.000000
++R:4383:aes-192-cbc:3.010000
++R:4401:aes-192-cbc:3.010000
++R:4366:aes-192-cbc:3.010000
++R:4397:aes-192-cbc:3.010000
++R:4402:aes-192-cbc:3.000000
++R:4391:aes-192-cbc:3.000000
++R:4406:aes-192-cbc:3.010000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:20:aes-192-cbc:11386838.54:18517717.33:22264661.33:23433270.43:23994368.00:23955476.41 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:20:aes-192-cbc:11325671.76:18460202.67:21541461.33:23375096.35:23874218.67:23857499.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:20:aes-192-cbc:11323853.82:18576789.33:22263381.33:23429188.04:23991637.33:23933703.65 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:20:aes-192-cbc:11292784.05:18459306.67:22058069.33:23274057.14:23819605.33:23764964.78 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:20:aes-192-cbc:11451226.67:18456512.00:21704207.31:23560533.33:23881993.36:24040789.33 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:20:aes-192-cbc:11213749.33:18335702.33:22235221.33:23479296.00:23862942.19:23980714.67 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:20:aes-192-cbc:11459360.00:18079574.75:21099093.33:22999040.00:23596225.91:23942485.33 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:20:aes-192-cbc:11473132.23:18585365.33:22283434.67:23522062.46:23977984.00:23982692.36 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+aes-192-cbc      90926.62k   147471.17k   175449.53k   187072.54k   190998.97k   191458.33k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 1, Accel: evp)
+Command: openssl speed -evp aes-192-cbc
+-------------------------------------------
+Doing AES-192-CBC for 3s on 16 size blocks: 1596049 AES-192-CBC's in 2.96s
+Doing AES-192-CBC for 3s on 64 size blocks: 465965 AES-192-CBC's in 2.98s
+Doing AES-192-CBC for 3s on 256 size blocks: 125943 AES-192-CBC's in 2.98s
+Doing AES-192-CBC for 3s on 1024 size blocks: 32677 AES-192-CBC's in 2.98s
+Doing AES-192-CBC for 3s on 8192 size blocks: 4084 AES-192-CBC's in 2.98s
+Doing AES-192-CBC for 3s on 16384 size blocks: 2420 AES-192-CBC's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-192-CBC       8627.29k    10007.30k    10819.26k    11228.61k    11226.89k    13305.13k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 aes-192-cbc
+-------------------------------------------
+Doing aes-192-cbc for 3s on 16 size blocks: 2626675 aes-192-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+aes-192-cbc      14102.95k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 aes-192-cbc
+-------------------------------------------
+Doing aes-192-cbc for 3s on 1024 size blocks: 71005 aes-192-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+aes-192-cbc      24399.03k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-192-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 aes-192-cbc
+-------------------------------------------
+Doing aes-192-cbc for 3s on 16384 size blocks: 4513 aes-192-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+aes-192-cbc      24812.41k
+✅ Test completed successfully
+
+--- 完成算法: aes-192-cbc ---
+
+--- 开始测试算法: aes-256-cbc ---
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 1, Accel: none)
+Command: openssl speed  aes-256-cbc
+-------------------------------------------
+Doing aes-256-cbc for 3s on 16 size blocks: 2143985 aes-256-cbc's in 2.98s
+Doing aes-256-cbc for 3s on 64 size blocks: 819706 aes-256-cbc's in 2.99s
+Doing aes-256-cbc for 3s on 256 size blocks: 241302 aes-256-cbc's in 2.98s
+Doing aes-256-cbc for 3s on 1024 size blocks: 62928 aes-256-cbc's in 2.98s
+Doing aes-256-cbc for 3s on 8192 size blocks: 6510 aes-256-cbc's in 2.99s
+Doing aes-256-cbc for 3s on 16384 size blocks: 3486 aes-256-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+aes-256-cbc      11511.33k    17545.55k    20729.30k    21623.58k    17836.09k    19165.98k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 aes-256-cbc
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++DT:aes-256-cbc:3:16
++R:2340859:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:64
++R:2336752:aes-256-cbc:3.000000
++R:2341108:aes-256-cbc:3.000000
++R:2342480:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:64
++DT:aes-256-cbc:3:64
++DT:aes-256-cbc:3:64
++R:2316404:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:64
++R:2283003:aes-256-cbc:3.000000
++R:2291560:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:64
++DT:aes-256-cbc:3:64
++R:2312277:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:64
++R:838546:aes-256-cbc:3.000000
++R:842387:aes-256-cbc:3.000000
++R:842585:aes-256-cbc:3.000000
++R:821692:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:256
++DT:aes-256-cbc:3:256
++DT:aes-256-cbc:3:256
++DT:aes-256-cbc:3:256
++R:847316:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:256
++R:819178:aes-256-cbc:3.010000
++R:844990:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:256
++DT:aes-256-cbc:3:256
++R:847916:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:256
++R:238702:aes-256-cbc:3.000000
++R:239282:aes-256-cbc:3.000000
++R:239262:aes-256-cbc:3.000000
++R:239349:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:1024
++DT:aes-256-cbc:3:1024
++DT:aes-256-cbc:3:1024
++DT:aes-256-cbc:3:1024
++R:239279:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:1024
++R:239766:aes-256-cbc:3.000000
++R:239224:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:1024
++DT:aes-256-cbc:3:1024
++R:240306:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:1024
++R:61745:aes-256-cbc:3.010000
++R:61772:aes-256-cbc:3.010000
++R:61855:aes-256-cbc:3.010000
++R:61867:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:8192
++DT:aes-256-cbc:3:8192
++DT:aes-256-cbc:3:8192
++DT:aes-256-cbc:3:8192
++R:62077:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:8192
++R:61832:aes-256-cbc:3.000000
++R:62010:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:8192
++DT:aes-256-cbc:3:8192
++R:62079:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:8192
++R:7835:aes-256-cbc:3.000000
++R:7803:aes-256-cbc:3.000000
++R:7822:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:16384
++DT:aes-256-cbc:3:16384
++R:7821:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:16384
++DT:aes-256-cbc:3:16384
++R:7832:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:16384
++R:7810:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:16384
++R:7837:aes-256-cbc:3.010000
++DT:aes-256-cbc:3:16384
++R:7845:aes-256-cbc:3.000000
++DT:aes-256-cbc:3:16384
++R:3896:aes-256-cbc:3.010000
++R:3917:aes-256-cbc:3.010000
++R:3914:aes-256-cbc:3.010000
++R:3916:aes-256-cbc:3.010000
++R:3930:aes-256-cbc:3.000000
++R:3917:aes-256-cbc:3.000000
++R:3912:aes-256-cbc:3.000000
++R:3922:aes-256-cbc:3.010000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:21:aes-256-cbc:12176016.00:17966564.78:20460032.00:21166080.00:21329137.54:21392042.67 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:21:aes-256-cbc:12221653.33:17417738.21:20413781.33:21105322.67:21255654.49:21364736.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:21:aes-256-cbc:12485909.33:17529429.33:20417024.00:21043029.90:21359274.67:21320972.76 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:21:aes-256-cbc:12462677.33:17970922.67:20369237.33:21005607.97:21307392.00:21206665.78 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:21:aes-256-cbc:12291173.42:18088874.67:20506112.00:21119234.55:21422080.00:21348188.70 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:21:aes-256-cbc:12493226.67:17975146.67:20418730.67:21014793.36:21394773.33:21304643.19 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:21:aes-256-cbc:12354154.67:18016021.26:20418474.67:21118554.15:21386581.33:21463040.00 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:21:aes-256-cbc:12484581.33:17888981.33:20424448.00:21047112.29:21356544.00:21315529.57 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+aes-256-cbc      98969.39k   142853.68k   163427.84k   168619.73k   170811.44k   170715.82k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 1, Accel: evp)
+Command: openssl speed -evp aes-256-cbc
+-------------------------------------------
+Doing AES-256-CBC for 3s on 16 size blocks: 2268657 AES-256-CBC's in 2.97s
+Doing AES-256-CBC for 3s on 64 size blocks: 835361 AES-256-CBC's in 2.98s
+Doing AES-256-CBC for 3s on 256 size blocks: 241622 AES-256-CBC's in 2.98s
+Doing AES-256-CBC for 3s on 1024 size blocks: 63034 AES-256-CBC's in 2.98s
+Doing AES-256-CBC for 3s on 8192 size blocks: 7934 AES-256-CBC's in 2.98s
+Doing AES-256-CBC for 3s on 16384 size blocks: 3979 AES-256-CBC's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-256-CBC      12221.72k    17940.64k    20756.79k    21660.01k    21810.51k    21876.49k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 aes-256-cbc
+-------------------------------------------
+Doing aes-256-cbc for 3s on 16 size blocks: 2311949 aes-256-cbc's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+aes-256-cbc      12413.15k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 aes-256-cbc
+-------------------------------------------
+Doing aes-256-cbc for 3s on 1024 size blocks: 58469 aes-256-cbc's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+aes-256-cbc      20024.17k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-cbc (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 aes-256-cbc
+-------------------------------------------
+Doing aes-256-cbc for 3s on 16384 size blocks: 4006 aes-256-cbc's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+aes-256-cbc      21951.27k
+✅ Test completed successfully
+
+--- 完成算法: aes-256-cbc ---
+
+--- 开始测试算法: aes-128-gcm ---
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 1, Accel: none)
+Command: openssl speed  aes-128-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-128-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 aes-128-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-128-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 1, Accel: evp)
+Command: openssl speed -evp aes-128-gcm
+-------------------------------------------
+Doing AES-128-GCM for 3s on 16 size blocks: 1971097 AES-128-GCM's in 2.97s
+Doing AES-128-GCM for 3s on 64 size blocks: 713920 AES-128-GCM's in 2.98s
+Doing AES-128-GCM for 3s on 256 size blocks: 206637 AES-128-GCM's in 2.98s
+Doing AES-128-GCM for 3s on 1024 size blocks: 53695 AES-128-GCM's in 2.98s
+Doing AES-128-GCM for 3s on 8192 size blocks: 6187 AES-128-GCM's in 2.98s
+Doing AES-128-GCM for 3s on 16384 size blocks: 2684 AES-128-GCM's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-128-GCM      10618.70k    15332.51k    17751.37k    18450.90k    17008.02k    14756.60k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 aes-128-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-128-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 aes-128-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-128-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-128-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 aes-128-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-128-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: aes-128-gcm ---
+
+--- 开始测试算法: aes-256-gcm ---
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 1, Accel: none)
+Command: openssl speed  aes-256-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-256-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 aes-256-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-256-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 1, Accel: evp)
+Command: openssl speed -evp aes-256-gcm
+-------------------------------------------
+Doing AES-256-GCM for 3s on 16 size blocks: 1781063 AES-256-GCM's in 2.97s
+Doing AES-256-GCM for 3s on 64 size blocks: 586655 AES-256-GCM's in 2.97s
+Doing AES-256-GCM for 3s on 256 size blocks: 165306 AES-256-GCM's in 2.99s
+Doing AES-256-GCM for 3s on 1024 size blocks: 42580 AES-256-GCM's in 2.98s
+Doing AES-256-GCM for 3s on 8192 size blocks: 5381 AES-256-GCM's in 2.98s
+Doing AES-256-GCM for 3s on 16384 size blocks: 2700 AES-256-GCM's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-256-GCM       9594.95k    12641.72k    14153.29k    14631.52k    14792.33k    14794.92k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 aes-256-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-256-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 aes-256-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-256-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: aes-256-gcm (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 aes-256-gcm
+-------------------------------------------
+speed: Unknown algorithm aes-256-gcm
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: aes-256-gcm ---
+
+--- 开始测试算法: des-ede3 ---
+===========================================
+Testing Cipher: des-ede3 (Threads: 1, Accel: none)
+Command: openssl speed  des-ede3
+-------------------------------------------
+Doing des-ede3 for 3s on 16 size blocks: 726218 des-ede3's in 2.98s
+Doing des-ede3 for 3s on 64 size blocks: 201810 des-ede3's in 2.98s
+Doing des-ede3 for 3s on 256 size blocks: 51191 des-ede3's in 2.98s
+Doing des-ede3 for 3s on 1024 size blocks: 13183 des-ede3's in 2.99s
+Doing des-ede3 for 3s on 8192 size blocks: 1639 des-ede3's in 2.98s
+Doing des-ede3 for 3s on 16384 size blocks: 812 des-ede3's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+des-ede3          3899.16k     4334.17k     4397.62k     4514.85k     4505.60k     4464.37k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: des-ede3 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 des-ede3
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++R:707431:des-ede3:3.000000
++R:705364:des-ede3:3.000000
++DT:des-ede3:3:64
++DT:des-ede3:3:64
++R:694919:des-ede3:3.010000
++DT:des-ede3:3:64
++R:650547:des-ede3:3.000000
++R:700485:des-ede3:3.000000
++DT:des-ede3:3:64
++DT:des-ede3:3:64
++R:663995:des-ede3:3.000000
++DT:des-ede3:3:64
++R:696044:des-ede3:3.000000
++DT:des-ede3:3:64
++R:696196:des-ede3:3.000000
++DT:des-ede3:3:64
++R:199406:des-ede3:3.000000
++R:197803:des-ede3:3.000000
++DT:des-ede3:3:256
++DT:des-ede3:3:256
++R:198959:des-ede3:3.000000
++DT:des-ede3:3:256
++R:199762:des-ede3:3.010000
++R:190587:des-ede3:3.010000
++DT:des-ede3:3:256
++DT:des-ede3:3:256
++R:188915:des-ede3:3.000000
++DT:des-ede3:3:256
++R:198860:des-ede3:3.000000
++DT:des-ede3:3:256
++R:198716:des-ede3:3.010000
++DT:des-ede3:3:256
++R:50968:des-ede3:3.010000
++R:51468:des-ede3:3.010000
++DT:des-ede3:3:1024
++DT:des-ede3:3:1024
++R:51150:des-ede3:3.010000
++DT:des-ede3:3:1024
++R:49537:des-ede3:3.000000
++R:51330:des-ede3:3.000000
++DT:des-ede3:3:1024
++DT:des-ede3:3:1024
++R:48589:des-ede3:3.000000
++DT:des-ede3:3:1024
++R:51197:des-ede3:3.010000
++DT:des-ede3:3:1024
++R:51129:des-ede3:3.000000
++DT:des-ede3:3:1024
++R:12991:des-ede3:3.000000
++R:12838:des-ede3:3.000000
++DT:des-ede3:3:8192
++DT:des-ede3:3:8192
++R:12894:des-ede3:3.000000
++DT:des-ede3:3:8192
++R:12512:des-ede3:3.000000
++R:12910:des-ede3:3.000000
++DT:des-ede3:3:8192
++DT:des-ede3:3:8192
++R:12251:des-ede3:3.010000
++DT:des-ede3:3:8192
++R:12905:des-ede3:3.000000
++DT:des-ede3:3:8192
++R:12889:des-ede3:3.010000
++DT:des-ede3:3:8192
++R:1629:des-ede3:3.000000
++DT:des-ede3:3:16384
++R:1610:des-ede3:3.000000
++DT:des-ede3:3:16384
++R:1615:des-ede3:3.000000
++DT:des-ede3:3:16384
++R:1574:des-ede3:3.010000
++DT:des-ede3:3:16384
++R:1619:des-ede3:3.010000
++DT:des-ede3:3:16384
++R:1536:des-ede3:3.000000
++DT:des-ede3:3:16384
++R:1619:des-ede3:3.010000
++DT:des-ede3:3:16384
++R:1617:des-ede3:3.000000
++DT:des-ede3:3:16384
++R:805:des-ede3:3.010000
++R:815:des-ede3:3.010000
++R:810:des-ede3:3.010000
++R:787:des-ede3:3.000000
++R:810:des-ede3:3.000000
++R:769:des-ede3:3.010000
++R:809:des-ede3:3.000000
++R:808:des-ede3:3.000000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:11:des-ede3:3469584.00:4052348.17:4227157.33:4270762.67:4283790.03:4298069.33 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:11:des-ede3:3735920.00:4247431.23:4380160.00:4406613.33:4406261.79:4423680.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:11:des-ede3:3693921.59:4244458.67:4350299.00:4401152.00:4410026.67:4408983.39 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:11:des-ede3:3772965.33:4253994.67:4377344.85:4434261.33:4448256.00:4436199.34 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:11:des-ede3:3541306.67:4030186.67:4146261.33:4167782.06:4194304.00:4185812.62 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:11:des-ede3:3712234.67:4242346.67:4354296.35:4404906.67:4406261.79:4418218.67 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:11:des-ede3:3761941.33:4219797.33:4334819.93:4382037.33:4396373.33:4381767.44 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:11:des-ede3:3713045.33:4225190.70:4363008.00:4384829.24:4415488.00:4412757.33 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+des-ede3         29400.92k    33515.75k    34533.35k    34852.34k    34960.76k    34965.49k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: des-ede3 (Threads: 1, Accel: evp)
+Command: openssl speed -evp des-ede3
+-------------------------------------------
+Doing DES-EDE3-ECB for 3s on 16 size blocks: 740011 DES-EDE3-ECB's in 2.97s
+Doing DES-EDE3-ECB for 3s on 64 size blocks: 199256 DES-EDE3-ECB's in 2.97s
+Doing DES-EDE3-ECB for 3s on 256 size blocks: 50748 DES-EDE3-ECB's in 2.98s
+Doing DES-EDE3-ECB for 3s on 1024 size blocks: 12794 DES-EDE3-ECB's in 2.99s
+Doing DES-EDE3-ECB for 3s on 8192 size blocks: 1603 DES-EDE3-ECB's in 2.98s
+Doing DES-EDE3-ECB for 3s on 16384 size blocks: 802 DES-EDE3-ECB's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+DES-EDE3-ECB      3986.59k     4293.73k     4359.56k     4381.62k     4406.64k     4409.39k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: des-ede3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 des-ede3
+-------------------------------------------
+Doing des-ede3 for 3s on 16 size blocks: 734977 des-ede3's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+des-ede3          3946.19k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: des-ede3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 des-ede3
+-------------------------------------------
+Doing des-ede3 for 3s on 1024 size blocks: 13232 des-ede3's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+des-ede3          4546.83k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: des-ede3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 des-ede3
+-------------------------------------------
+Doing des-ede3 for 3s on 16384 size blocks: 829 des-ede3's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+des-ede3          4542.59k
+✅ Test completed successfully
+
+--- 完成算法: des-ede3 ---
+
+--- 开始测试算法: rc4 ---
+===========================================
+Testing Cipher: rc4 (Threads: 1, Accel: none)
+Command: openssl speed  rc4
+-------------------------------------------
+20C455833F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+rc4                  0.00         0.00         0.00         0.00         0.00         0.00 
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: rc4 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 rc4
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+208494B43F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:12:rc4:0.00:0.00:0.00:0.00:0.00:0.00 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+rc4                  0.00         0.00         0.00         0.00         0.00         0.00 
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: rc4 (Threads: 1, Accel: evp)
+Command: openssl speed -evp rc4
+-------------------------------------------
+Doing RC4 for 3s on 16 size blocks: 
+EVP_CipherInit_ex failure
+209453883F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: rc4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 rc4
+-------------------------------------------
+2024A0B53F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+rc4                  0.00 
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: rc4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 rc4
+-------------------------------------------
+2084A48C3F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+rc4                  0.00 
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: rc4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 rc4
+-------------------------------------------
+201494B23F000000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:342:Global default library context, Algorithm (RC4 : 25), Properties ()
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+rc4                  0.00 
+✅ Test completed successfully
+
+--- 完成算法: rc4 ---
+
+--- 开始测试算法: chacha20 ---
+===========================================
+Testing Cipher: chacha20 (Threads: 1, Accel: none)
+Command: openssl speed  chacha20
+-------------------------------------------
+speed: Unknown algorithm chacha20
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: chacha20 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 chacha20
+-------------------------------------------
+speed: Unknown algorithm chacha20
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: chacha20 (Threads: 1, Accel: evp)
+Command: openssl speed -evp chacha20
+-------------------------------------------
+Doing ChaCha20 for 3s on 16 size blocks: 4777875 ChaCha20's in 2.97s
+Doing ChaCha20 for 3s on 64 size blocks: 2369396 ChaCha20's in 2.97s
+Doing ChaCha20 for 3s on 256 size blocks: 792242 ChaCha20's in 2.99s
+Doing ChaCha20 for 3s on 1024 size blocks: 218176 ChaCha20's in 2.98s
+Doing ChaCha20 for 3s on 8192 size blocks: 28066 ChaCha20's in 2.99s
+Doing ChaCha20 for 3s on 16384 size blocks: 14044 ChaCha20's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+ChaCha20         25739.39k    51057.69k    67830.75k    74970.54k    76895.21k    77213.72k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: chacha20 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 chacha20
+-------------------------------------------
+speed: Unknown algorithm chacha20
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: chacha20 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 chacha20
+-------------------------------------------
+speed: Unknown algorithm chacha20
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: chacha20 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 chacha20
+-------------------------------------------
+speed: Unknown algorithm chacha20
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: chacha20 ---
+
+--- 开始测试算法: sm4 ---
+===========================================
+Testing Cipher: sm4 (Threads: 1, Accel: none)
+Command: openssl speed  sm4
+-------------------------------------------
+speed: Unknown algorithm sm4
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: sm4 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 sm4
+-------------------------------------------
+speed: Unknown algorithm sm4
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: sm4 (Threads: 1, Accel: evp)
+Command: openssl speed -evp sm4
+-------------------------------------------
+Doing SM4-CBC for 3s on 16 size blocks: 2696248 SM4-CBC's in 2.97s
+Doing SM4-CBC for 3s on 64 size blocks: 1074374 SM4-CBC's in 2.98s
+Doing SM4-CBC for 3s on 256 size blocks: 319973 SM4-CBC's in 2.99s
+Doing SM4-CBC for 3s on 1024 size blocks: 83460 SM4-CBC's in 2.98s
+Doing SM4-CBC for 3s on 8192 size blocks: 10551 SM4-CBC's in 2.98s
+Doing SM4-CBC for 3s on 16384 size blocks: 5287 SM4-CBC's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+SM4-CBC          14525.24k    23073.80k    27395.68k    28678.87k    29004.63k    28970.64k
+✅ Test completed successfully
+
+===========================================
+Testing Cipher: sm4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 sm4
+-------------------------------------------
+speed: Unknown algorithm sm4
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: sm4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 sm4
+-------------------------------------------
+speed: Unknown algorithm sm4
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Cipher: sm4 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 sm4
+-------------------------------------------
+speed: Unknown algorithm sm4
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: sm4 ---
+
+########################################### 
+测试哈希算法 (6 个算法)
+###########################################
+
+--- 开始测试算法: md5 ---
+===========================================
+Testing Digest: md5 (Threads: 1, Accel: none)
+Command: openssl speed  md5
+-------------------------------------------
+Doing md5 for 3s on 16 size blocks: 717386 md5's in 2.99s
+Doing md5 for 3s on 64 size blocks: 668516 md5's in 2.98s
+Doing md5 for 3s on 256 size blocks: 534942 md5's in 2.98s
+Doing md5 for 3s on 1024 size blocks: 297272 md5's in 2.98s
+Doing md5 for 3s on 8192 size blocks: 57828 md5's in 2.98s
+Doing md5 for 3s on 16384 size blocks: 30068 md5's in 2.99s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+md5               3838.85k    14357.39k    45954.75k   102149.84k   158968.78k   164760.57k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: md5 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 md5
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
++DT:md5:3:16
+Forked child 3
++DT:md5:3:16
++DT:md5:3:16
+Forked child 4
+Forked child 5
++DT:md5:3:16
+Forked child 6
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++R:464430:md5:3.010000
++R:476817:md5:3.010000
++R:677959:md5:3.000000
++DT:md5:3:64
++DT:md5:3:64
++DT:md5:3:64
++R:437559:md5:3.000000
++DT:md5:3:64
++R:680933:md5:3.010000
++DT:md5:3:64
++R:479636:md5:3.000000
++R:453959:md5:3.000000
++DT:md5:3:64
++DT:md5:3:64
++R:680089:md5:3.000000
++DT:md5:3:64
++R:422626:md5:3.000000
++R:435868:md5:3.000000
++R:415441:md5:3.000000
++DT:md5:3:256
++DT:md5:3:256
++DT:md5:3:256
++R:390848:md5:3.010000
++DT:md5:3:256
++R:439555:md5:3.000000
++DT:md5:3:256
++R:415558:md5:3.010000
++R:418746:md5:3.010000
++DT:md5:3:256
++DT:md5:3:256
++R:438519:md5:3.000000
++DT:md5:3:256
++R:344686:md5:3.010000
++R:347953:md5:3.010000
++R:351646:md5:3.010000
++DT:md5:3:1024
++DT:md5:3:1024
++DT:md5:3:1024
++R:323099:md5:3.000000
++DT:md5:3:1024
++R:344004:md5:3.010000
++DT:md5:3:1024
++R:345306:md5:3.000000
++DT:md5:3:1024
++R:346144:md5:3.000000
++DT:md5:3:1024
++R:347364:md5:3.010000
++DT:md5:3:1024
++R:204736:md5:3.000000
++R:204393:md5:3.000000
++R:203932:md5:3.000000
++DT:md5:3:8192
++DT:md5:3:8192
++DT:md5:3:8192
++R:190371:md5:3.010000
++DT:md5:3:8192
++R:202538:md5:3.000000
++DT:md5:3:8192
++R:204349:md5:3.000000
++R:203021:md5:3.000000
++DT:md5:3:8192
++DT:md5:3:8192
++R:204043:md5:3.000000
++DT:md5:3:8192
++R:42230:md5:3.010000
++R:42593:md5:3.010000
++R:42492:md5:3.010000
++DT:md5:3:16384
++DT:md5:3:16384
++DT:md5:3:16384
++R:38680:md5:3.000000
++DT:md5:3:16384
++R:42473:md5:3.000000
++DT:md5:3:16384
++R:42355:md5:3.010000
++R:42305:md5:3.010000
++DT:md5:3:16384
++DT:md5:3:16384
++R:42644:md5:3.010000
++DT:md5:3:16384
++R:22438:md5:3.000000
++R:22641:md5:3.000000
++R:22609:md5:3.000000
++R:20870:md5:3.000000
++R:22586:md5:3.010000
++R:22597:md5:3.000000
++R:22558:md5:3.000000
++R:22569:md5:3.000000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:3:md5:2468730.90:9016021.33:29907433.89:69883221.33:115920882.39:123475285.33 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:3:md5:3615781.33:9298517.33:29593344.85:69766144.00:115646001.33:123650048.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:3:md5:2534575.42:8862741.33:29315487.04:69608789.33:114932943.52:122541397.33 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:3:md5:2333648.00:8310389.37:27571114.67:64764087.71:105622186.67:113978026.67 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:3:md5:3619577.41:9377173.33:29257483.06:69132970.67:115979605.33:122939875.08 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:3:md5:2421114.67:8835784.72:29466112.00:69297834.67:115137063.12:123196757.33 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:3:md5:2558058.67:8903569.44:29537621.33:69751125.33:115273142.86:123409749.33 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:3:md5:3627141.33:9355072.00:29543250.50:69646677.33:116059683.72:123256832.00 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+md5              23178.63k    71959.27k   234191.85k   551850.85k   914571.51k   976447.97k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: md5 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 md5
+-------------------------------------------
+Doing md5 for 3s on 16 size blocks: 669563 md5's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+md5               3607.07k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: md5 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 md5
+-------------------------------------------
+Doing md5 for 3s on 1024 size blocks: 269819 md5's in 2.94s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+md5              93977.77k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: md5 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 md5
+-------------------------------------------
+Doing md5 for 3s on 16384 size blocks: 29018 md5's in 2.95s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+md5             161163.02k
+✅ Test completed successfully
+
+--- 完成算法: md5 ---
+
+--- 开始测试算法: sha1 ---
+===========================================
+Testing Digest: sha1 (Threads: 1, Accel: none)
+Command: openssl speed  sha1
+-------------------------------------------
+Doing sha1 for 3s on 16 size blocks: 602917 sha1's in 2.97s
+Doing sha1 for 3s on 64 size blocks: 536879 sha1's in 2.98s
+Doing sha1 for 3s on 256 size blocks: 386202 sha1's in 2.98s
+Doing sha1 for 3s on 1024 size blocks: 183934 sha1's in 2.99s
+Doing sha1 for 3s on 8192 size blocks: 31308 sha1's in 2.98s
+Doing sha1 for 3s on 16384 size blocks: 16227 sha1's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+sha1              3248.04k    11530.29k    33177.08k    62992.78k    86065.48k    89215.83k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha1 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 sha1
+-------------------------------------------
+Forked child 0
++DT:sha1:3:16
+Forked child 1
++DT:sha1:3:16
+Forked child 2
+Forked child 3
++DT:sha1:3:16
+Forked child 4
++DT:sha1:3:16
+Forked child 5
+Forked child 6
++DT:sha1:3:16
++DT:sha1:3:16
++DT:sha1:3:16
++DT:sha1:3:16
++R:547081:sha1:3.000000
++R:551041:sha1:3.000000
++DT:sha1:3:64
++DT:sha1:3:64
++R:562356:sha1:3.010000
++DT:sha1:3:64
++R:526745:sha1:3.000000
++DT:sha1:3:64
++R:557192:sha1:3.010000
++DT:sha1:3:64
++R:555002:sha1:3.000000
++R:549679:sha1:3.000000
++DT:sha1:3:64
++DT:sha1:3:64
++R:568986:sha1:3.000000
++DT:sha1:3:64
++R:511557:sha1:3.000000
++R:506636:sha1:3.000000
++DT:sha1:3:256
++DT:sha1:3:256
++R:505076:sha1:3.000000
++DT:sha1:3:256
++R:508003:sha1:3.010000
++DT:sha1:3:256
++R:499970:sha1:3.000000
++DT:sha1:3:256
++R:516475:sha1:3.000000
++R:506325:sha1:3.000000
++DT:sha1:3:256
++DT:sha1:3:256
++R:520591:sha1:3.010000
++DT:sha1:3:256
++R:371602:sha1:3.010000
++R:371081:sha1:3.010000
++DT:sha1:3:1024
++DT:sha1:3:1024
++R:368907:sha1:3.010000
++DT:sha1:3:1024
++R:369099:sha1:3.000000
++DT:sha1:3:1024
++R:362743:sha1:3.000000
++DT:sha1:3:1024
++R:371603:sha1:3.010000
++R:369140:sha1:3.010000
++DT:sha1:3:1024
++DT:sha1:3:1024
++R:371165:sha1:3.000000
++DT:sha1:3:1024
++R:178932:sha1:3.000000
++R:179702:sha1:3.000000
++DT:sha1:3:8192
++DT:sha1:3:8192
++R:178532:sha1:3.000000
++DT:sha1:3:8192
++R:178562:sha1:3.000000
++DT:sha1:3:8192
++R:176678:sha1:3.010000
++DT:sha1:3:8192
++R:179524:sha1:3.000000
++R:178683:sha1:3.000000
++DT:sha1:3:8192
++DT:sha1:3:8192
++R:179449:sha1:3.010000
++DT:sha1:3:8192
++R:30865:sha1:3.010000
++R:30807:sha1:3.010000
++DT:sha1:3:16384
++DT:sha1:3:16384
++R:30664:sha1:3.000000
++DT:sha1:3:16384
++R:30714:sha1:3.010000
++DT:sha1:3:16384
++R:30720:sha1:3.000000
++DT:sha1:3:16384
++R:30812:sha1:3.010000
++R:30863:sha1:3.010000
++DT:sha1:3:16384
++DT:sha1:3:16384
++R:30511:sha1:3.000000
++DT:sha1:3:16384
++R:12560:sha1:3.000000
++R:12969:sha1:3.000000
++R:12558:sha1:3.010000
++R:12533:sha1:3.000000
++R:12920:sha1:3.010000
++R:12948:sha1:3.000000
++R:12909:sha1:3.000000
++R:12888:sha1:3.000000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:4:sha1:2938885.33:10808234.67:31604688.37:61075456.00:83844167.44:68594346.67 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:4:sha1:2917765.33:10913216.00:31560377.41:61338282.67:84002019.93:70828032.00 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:4:sha1:2809306.67:10801392.69:31496448.00:60949162.67:83591059.14:68446890.67 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:4:sha1:2989267.77:10774954.67:31375479.07:60938922.67:83733162.67:68355572.09 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:4:sha1:2960010.67:11018133.33:31604773.42:61277525.33:83996576.74:70713344.00 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:4:sha1:2961817.94:10666026.67:30954069.33:60105738.21:83886080.00:70326006.64 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:4:sha1:2931621.33:10801600.00:31395295.68:60990464.00:83857775.42:70500352.00 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:4:sha1:3034592.00:11069044.52:31672746.67:61048430.56:83315370.67:70385664.00 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+sha1             23543.27k    86852.60k   251663.88k   487723.98k   670226.21k   558150.21k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha1 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 sha1
+-------------------------------------------
+Doing sha1 for 3s on 16 size blocks: 634717 sha1's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+sha1              3407.88k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha1 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 sha1
+-------------------------------------------
+Doing sha1 for 3s on 1024 size blocks: 185452 sha1's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+sha1             63940.35k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha1 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 sha1
+-------------------------------------------
+Doing sha1 for 3s on 16384 size blocks: 16175 sha1's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+sha1             89229.36k
+✅ Test completed successfully
+
+--- 完成算法: sha1 ---
+
+--- 开始测试算法: sha256 ---
+===========================================
+Testing Digest: sha256 (Threads: 1, Accel: none)
+Command: openssl speed  sha256
+-------------------------------------------
+Doing sha256 for 3s on 16 size blocks: 481544 sha256's in 2.98s
+Doing sha256 for 3s on 64 size blocks: 358403 sha256's in 2.98s
+Doing sha256 for 3s on 256 size blocks: 204402 sha256's in 2.99s
+Doing sha256 for 3s on 1024 size blocks: 75466 sha256's in 2.98s
+Doing sha256 for 3s on 8192 size blocks: 10940 sha256's in 2.98s
+Doing sha256 for 3s on 16384 size blocks: 5518 sha256's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+sha256            2585.47k     7697.25k    17500.64k    25931.94k    30073.99k    30337.89k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha256 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 sha256
+-------------------------------------------
+Forked child 0
+Forked child 1
++DT:sha256:3:16
++DT:sha256:3:16
+Forked child 2
+Forked child 3
+Forked child 4
++DT:sha256:3:16
+Forked child 5
++DT:sha256:3:16
+Forked child 6
++DT:sha256:3:16
++DT:sha256:3:16
++DT:sha256:3:16
++DT:sha256:3:16
++R:464635:sha256:3.000000
++DT:sha256:3:64
++R:428000:sha256:3.010000
++DT:sha256:3:64
++R:459690:sha256:3.000000
++DT:sha256:3:64
++R:460812:sha256:3.010000
++DT:sha256:3:64
++R:460048:sha256:3.000000
++DT:sha256:3:64
++R:473100:sha256:3.010000
++R:458823:sha256:3.010000
++DT:sha256:3:64
++DT:sha256:3:64
++R:463170:sha256:3.000000
++DT:sha256:3:64
++R:354898:sha256:3.010000
++DT:sha256:3:256
++R:339790:sha256:3.000000
++DT:sha256:3:256
++R:360204:sha256:3.010000
++DT:sha256:3:256
++R:362310:sha256:3.000000
++DT:sha256:3:256
++R:362602:sha256:3.010000
++DT:sha256:3:256
++R:345373:sha256:3.000000
++R:360949:sha256:3.000000
++DT:sha256:3:256
++DT:sha256:3:256
++R:362941:sha256:3.010000
++DT:sha256:3:256
++R:201810:sha256:3.000000
++DT:sha256:3:1024
++R:196452:sha256:3.000000
++DT:sha256:3:1024
++R:203099:sha256:3.000000
++DT:sha256:3:1024
++R:204285:sha256:3.010000
++DT:sha256:3:1024
++R:204018:sha256:3.000000
++DT:sha256:3:1024
++R:201906:sha256:3.000000
++R:202861:sha256:3.000000
++DT:sha256:3:1024
++DT:sha256:3:1024
++R:204132:sha256:3.000000
++DT:sha256:3:1024
++R:74210:sha256:3.000000
++DT:sha256:3:8192
++R:73247:sha256:3.010000
++DT:sha256:3:8192
++R:73906:sha256:3.010000
++DT:sha256:3:8192
++R:74570:sha256:3.000000
++DT:sha256:3:8192
++R:74427:sha256:3.000000
++DT:sha256:3:8192
++R:72690:sha256:3.010000
++R:73336:sha256:3.010000
++DT:sha256:3:8192
++DT:sha256:3:8192
++R:74521:sha256:3.010000
++DT:sha256:3:8192
++R:10733:sha256:3.010000
++DT:sha256:3:16384
++R:10721:sha256:3.000000
++DT:sha256:3:16384
++R:10708:sha256:3.000000
++DT:sha256:3:16384
++R:10761:sha256:3.000000
++DT:sha256:3:16384
++R:10737:sha256:3.010000
++DT:sha256:3:16384
++R:10401:sha256:3.000000
++R:10532:sha256:3.000000
++DT:sha256:3:16384
++DT:sha256:3:16384
++R:10507:sha256:3.000000
++DT:sha256:3:16384
++R:5438:sha256:3.000000
++R:5428:sha256:3.010000
++R:5420:sha256:3.000000
++R:5452:sha256:3.010000
++R:5435:sha256:3.000000
++R:5433:sha256:3.010000
++R:5392:sha256:3.010000
++R:5447:sha256:3.000000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:6:sha256:2275083.06:7248853.33:16763904.00:24918580.73:29275477.33:29545631.89 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:6:sha256:2478053.33:7546003.99:17221120.00:25330346.67:29210875.75:29698730.67 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:6:sha256:2451680.00:7658822.59:17331114.67:25142772.09:29239978.67:29600426.67 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:6:sha256:2449499.00:7729280.00:17374405.32:25453226.67:29384704.00:29676268.44 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:6:sha256:2453589.33:7709809.97:17409536.00:25404416.00:29221762.13:29682346.67 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:6:sha256:2438926.25:7700245.33:17310805.33:24948858.47:28401664.00:29349677.08 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:6:sha256:2514817.28:7367957.33:17229312.00:24729089.70:28759381.33:29572847.84 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:6:sha256:2470240.00:7717017.94:17419264.00:25351994.68:28691114.67:29747882.67 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+sha256           19531.89k    60677.99k   138059.46k   201279.29k   232184.96k   236873.81k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha256 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 sha256
+-------------------------------------------
+Doing sha256 for 3s on 16 size blocks: 450103 sha256's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+sha256            2424.80k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha256 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 sha256
+-------------------------------------------
+Doing sha256 for 3s on 1024 size blocks: 74271 sha256's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+sha256           25521.31k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha256 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 sha256
+-------------------------------------------
+Doing sha256 for 3s on 16384 size blocks: 5463 sha256's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+sha256           30136.63k
+✅ Test completed successfully
+
+--- 完成算法: sha256 ---
+
+--- 开始测试算法: sha512 ---
+===========================================
+Testing Digest: sha512 (Threads: 1, Accel: none)
+Command: openssl speed  sha512
+-------------------------------------------
+Doing sha512 for 3s on 16 size blocks: 502215 sha512's in 2.97s
+Doing sha512 for 3s on 64 size blocks: 500547 sha512's in 2.98s
+Doing sha512 for 3s on 256 size blocks: 299518 sha512's in 2.98s
+Doing sha512 for 3s on 1024 size blocks: 134962 sha512's in 2.98s
+Doing sha512 for 3s on 8192 size blocks: 22070 sha512's in 2.98s
+Doing sha512 for 3s on 16384 size blocks: 11277 sha512's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+sha512            2705.54k    10750.00k    25730.41k    46376.20k    60670.28k    62000.79k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha512 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 sha512
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
++DT:sha512:3:16
++DT:sha512:3:16
+Forked child 3
+Forked child 4
++DT:sha512:3:16
+Forked child 5
++DT:sha512:3:16
+Forked child 6
++DT:sha512:3:16
++DT:sha512:3:16
++DT:sha512:3:16
++DT:sha512:3:16
++R:443572:sha512:3.010000
++DT:sha512:3:64
++R:444735:sha512:3.000000
++DT:sha512:3:64
++R:443782:sha512:3.010000
++DT:sha512:3:64
++R:429702:sha512:3.000000
++DT:sha512:3:64
++R:421376:sha512:3.000000
++DT:sha512:3:64
++R:438615:sha512:3.010000
++R:450988:sha512:3.010000
++DT:sha512:3:64
++DT:sha512:3:64
++R:437689:sha512:3.010000
++DT:sha512:3:64
++R:450762:sha512:3.000000
++DT:sha512:3:256
++R:453962:sha512:3.010000
++DT:sha512:3:256
++R:449881:sha512:3.000000
++DT:sha512:3:256
++R:452799:sha512:3.000000
++DT:sha512:3:256
++R:435606:sha512:3.010000
++DT:sha512:3:256
++R:452844:sha512:3.000000
++R:452682:sha512:3.000000
++DT:sha512:3:256
++DT:sha512:3:256
++R:439610:sha512:3.000000
++DT:sha512:3:256
++R:245264:sha512:3.010000
++DT:sha512:3:1024
++R:248085:sha512:3.000000
++DT:sha512:3:1024
++R:244983:sha512:3.000000
++DT:sha512:3:1024
++R:246151:sha512:3.010000
++DT:sha512:3:1024
++R:233098:sha512:3.000000
++DT:sha512:3:1024
++R:246613:sha512:3.010000
++R:246750:sha512:3.010000
++DT:sha512:3:1024
++DT:sha512:3:1024
++R:242042:sha512:3.000000
++DT:sha512:3:1024
++R:104554:sha512:3.000000
++DT:sha512:3:8192
++R:105117:sha512:3.000000
++DT:sha512:3:8192
++R:104416:sha512:3.010000
++DT:sha512:3:8192
++R:104525:sha512:3.000000
++DT:sha512:3:8192
++R:97683:sha512:3.010000
++DT:sha512:3:8192
++R:104802:sha512:3.000000
++R:104766:sha512:3.000000
++DT:sha512:3:8192
++DT:sha512:3:8192
++R:102819:sha512:3.010000
++DT:sha512:3:8192
++R:16449:sha512:3.000000
++DT:sha512:3:16384
++R:16501:sha512:3.010000
++DT:sha512:3:16384
++R:16409:sha512:3.000000
++DT:sha512:3:16384
++R:16463:sha512:3.010000
++DT:sha512:3:16384
++R:15228:sha512:3.000000
++DT:sha512:3:16384
++R:16489:sha512:3.000000
++R:16451:sha512:3.000000
++DT:sha512:3:16384
++DT:sha512:3:16384
++R:16192:sha512:3.000000
++DT:sha512:3:16384
++R:8385:sha512:3.010000
++R:8411:sha512:3.000000
++R:8590:sha512:3.010000
++R:8392:sha512:3.000000
++R:7747:sha512:3.000000
++R:8413:sha512:3.010000
++R:8381:sha512:3.010000
++R:8235:sha512:3.010000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:7:sha512:2357857.81:9616256.00:20859662.46:35687765.33:44916736.00:45641142.86 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:7:sha512:2371920.00:9652348.17:21169920.00:35879936.00:44909033.89:45935274.67 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:7:sha512:2358974.09:9597461.33:20905216.00:35522253.82:44807509.33:46756996.68 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:7:sha512:2291744.00:9659712.00:20935101.66:35677866.67:44805613.29:45831509.33 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:7:sha512:2247338.67:9262054.49:19891029.33:33231691.69:41582592.00:42308949.33 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:7:sha512:2331508.31:9660672.00:20986046.51:35772416.00:45025962.67:45793552.16 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:7:sha512:2397278.41:9657216.00:20974394.68:35760128.00:44922197.33:45619370.10 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:7:sha512:2326586.05:9378346.67:20654250.67:34978955.48:44214954.67:44824664.45 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+sha512           18683.21k    76484.07k   166375.62k   282511.01k   355184.60k   362711.46k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 sha512
+-------------------------------------------
+Doing sha512 for 3s on 16 size blocks: 489754 sha512's in 2.97s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes
+sha512            2638.41k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 sha512
+-------------------------------------------
+Doing sha512 for 3s on 1024 size blocks: 129382 sha512's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type           1024 bytes
+sha512           44458.78k
+✅ Test completed successfully
+
+===========================================
+Testing Digest: sha512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 sha512
+-------------------------------------------
+Doing sha512 for 3s on 16384 size blocks: 11456 sha512's in 2.98s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type          16384 bytes
+sha512           62984.93k
+✅ Test completed successfully
+
+--- 完成算法: sha512 ---
+
+--- 开始测试算法: blake2b512 ---
+===========================================
+Testing Digest: blake2b512 (Threads: 1, Accel: none)
+Command: openssl speed  blake2b512
+-------------------------------------------
+speed: Unknown algorithm blake2b512
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: blake2b512 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 blake2b512
+-------------------------------------------
+speed: Unknown algorithm blake2b512
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: blake2b512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 blake2b512
+-------------------------------------------
+speed: Unknown algorithm blake2b512
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: blake2b512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 blake2b512
+-------------------------------------------
+speed: Unknown algorithm blake2b512
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: blake2b512 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 blake2b512
+-------------------------------------------
+speed: Unknown algorithm blake2b512
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: blake2b512 ---
+
+--- 开始测试算法: sm3 ---
+===========================================
+Testing Digest: sm3 (Threads: 1, Accel: none)
+Command: openssl speed  sm3
+-------------------------------------------
+speed: Unknown algorithm sm3
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: sm3 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 sm3
+-------------------------------------------
+speed: Unknown algorithm sm3
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: sm3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16 sm3
+-------------------------------------------
+speed: Unknown algorithm sm3
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: sm3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 1024 sm3
+-------------------------------------------
+speed: Unknown algorithm sm3
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Digest: sm3 (Threads: 1, Accel: none)
+Command: openssl speed -bytes 16384 sm3
+-------------------------------------------
+speed: Unknown algorithm sm3
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成算法: sm3 ---
+
+########################################### 
+测试非对称算法 (7 个算法)
+###########################################
+
+--- 开始测试算法: rsa1024 ---
+===========================================
+Testing PublicKey: rsa1024 (Threads: 1, Accel: none)
+Command: openssl speed  rsa1024
+-------------------------------------------
+Doing 1024 bits private rsa's for 10s: 2083 1024 bits private RSA's in 9.91s
+Doing 1024 bits public rsa's for 10s: 55881 1024 bits public RSA's in 9.91s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 1024 bits 0.004758s 0.000177s    210.2   5638.8
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: rsa1024 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 rsa1024
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++DTP:1024:private:rsa:10
++R1:2109:1024:10.00
++DTP:1024:public:rsa:10
++R1:2111:1024:10.00
++R1:2102:1024:10.00
++R1:2080:1024:10.01
++R1:2110:1024:10.01
++R1:2110:1024:10.00
++R1:2073:1024:10.00
++R1:2113:1024:10.01
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++DTP:1024:public:rsa:10
++R2:53973:1024:10.00
++R2:53627:1024:10.00
++R2:54042:1024:10.00
++R2:53521:1024:10.00
++R2:53749:1024:10.00
++R2:53873:1024:10.00
++R2:54062:1024:10.00
++R2:54218:1024:10.00
+Forked child 7
+Got: +F2:1:1024:210.200000:5374.900000 from 0
+Got: +F2:1:1024:210.789211:5387.300000 from 1
+Got: +F2:1:1024:211.100000:5404.200000 from 2
+Got: +F2:1:1024:207.792208:5352.100000 from 3
+Got: +F2:1:1024:207.300000:5362.700000 from 4
+Got: +F2:1:1024:211.000000:5406.200000 from 5
+Got: +F2:1:1024:211.088911:5421.800000 from 6
+Got: +F2:1:1024:210.900000:5397.300000 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 1024 bits 0.000595s 0.000023s   1680.2  43106.5
+✅ Test completed successfully
+
+--- 完成算法: rsa1024 ---
+
+--- 开始测试算法: rsa2048 ---
+===========================================
+Testing PublicKey: rsa2048 (Threads: 1, Accel: none)
+Command: openssl speed  rsa2048
+-------------------------------------------
+Doing 2048 bits private rsa's for 10s: 446 2048 bits private RSA's in 9.89s
+Doing 2048 bits public rsa's for 10s: 20430 2048 bits public RSA's in 9.92s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.022175s 0.000486s     45.1   2059.5
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: rsa2048 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 rsa2048
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++DTP:2048:private:rsa:10
++R1:439:2048:10.01
++R1:439:2048:10.01
++R1:437:2048:10.02
++DTP:2048:public:rsa:10
++DTP:2048:public:rsa:10
++DTP:2048:public:rsa:10
++R1:438:2048:10.02
++DTP:2048:public:rsa:10
++R1:438:2048:10.02
++DTP:2048:public:rsa:10
++R1:439:2048:10.01
++DTP:2048:public:rsa:10
++R1:435:2048:10.01
++DTP:2048:public:rsa:10
++R1:436:2048:10.02
++DTP:2048:public:rsa:10
++R2:19799:2048:10.00
++R2:20041:2048:10.00
++R2:20057:2048:10.00
++R2:19978:2048:10.01
++R2:19957:2048:10.00
++R2:20043:2048:10.01
++R2:19899:2048:10.00
++R2:19918:2048:10.01
+Forked child 7
+Got: +F2:2:2048:43.712575:1995.700000 from 0
+Got: +F2:2:2048:43.856144:2005.700000 from 1
+Got: +F2:2:2048:43.712575:1995.804196 from 2
+Got: +F2:2:2048:43.612774:1979.900000 from 3
+Got: +F2:2:2048:43.856144:2002.297702 from 4
+Got: +F2:2:2048:43.456543:1989.900000 from 5
+Got: +F2:2:2048:43.512974:1989.810190 from 6
+Got: +F2:2:2048:43.856144:2004.100000 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 2048 bits 0.002861s 0.000063s    349.6  15963.2
+✅ Test completed successfully
+
+--- 完成算法: rsa2048 ---
+
+--- 开始测试算法: rsa4096 ---
+===========================================
+Testing PublicKey: rsa4096 (Threads: 1, Accel: none)
+Command: openssl speed  rsa4096
+-------------------------------------------
+Doing 4096 bits private rsa's for 10s: 81 4096 bits private RSA's in 9.98s
+Doing 4096 bits public rsa's for 10s: 6508 4096 bits public RSA's in 9.90s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 4096 bits 0.123210s 0.001521s      8.1    657.4
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: rsa4096 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 rsa4096
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++DTP:4096:private:rsa:10
++R1:75:4096:10.04
++DTP:4096:public:rsa:10
++R1:76:4096:10.05
++DTP:4096:public:rsa:10
++R1:76:4096:10.07
++DTP:4096:public:rsa:10
++R1:76:4096:10.08
++DTP:4096:public:rsa:10
++R1:75:4096:10.10
++DTP:4096:public:rsa:10
++R1:76:4096:10.10
++DTP:4096:public:rsa:10
++R1:76:4096:10.12
++DTP:4096:public:rsa:10
++R1:51:4096:10.17
++DTP:4096:public:rsa:10
++R2:5686:4096:10.00
++R2:5498:4096:10.01
++R2:3696:4096:10.01
++R2:3769:4096:10.00
++R2:3378:4096:10.00
++R2:3785:4096:10.01
++R2:3713:4096:10.01
++R2:3942:4096:10.00
+Forked child 7
+Got: +F2:4:4096:5.014749:394.200000 from 0
+Got: +F2:4:4096:7.562189:549.250749 from 1
+Got: +F2:4:4096:7.547170:369.230769 from 2
+Got: +F2:4:4096:7.425743:337.800000 from 3
+Got: +F2:4:4096:7.509881:370.929071 from 4
+Got: +F2:4:4096:7.539683:376.900000 from 5
+Got: +F2:4:4096:7.470120:568.600000 from 6
+Got: +F2:4:4096:7.524752:378.121878 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+rsa 4096 bits 0.017363s 0.000299s     57.6   3345.0
+✅ Test completed successfully
+
+--- 完成算法: rsa4096 ---
+
+--- 开始测试算法: dsa1024 ---
+===========================================
+Testing PublicKey: dsa1024 (Threads: 1, Accel: none)
+Command: openssl speed  dsa1024
+-------------------------------------------
+Doing 1024 bits sign dsa's for 10s: 3127 1024 bits DSA signs in 9.86s
+Doing 1024 bits verify dsa's for 10s: 3918 1024 bits DSA verify in 9.90s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+dsa 1024 bits 0.003153s 0.002527s    317.1    395.8
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: dsa1024 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 dsa1024
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++DTP:1024:sign:dsa:10
++R3:3053:1024:10.00
++R3:3056:1024:10.00
++R3:2989:1024:10.00
++R3:3062:1024:10.00
++R3:3024:1024:10.00
++R3:3002:1024:10.00
++R3:3030:1024:10.00
++R3:3040:1024:10.00
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++DTP:1024:verify:dsa:10
++R4:4031:1024:10.00
++R4:4062:1024:10.00
++R4:3964:1024:10.01
++R4:4017:1024:10.00
++R4:3966:1024:10.00
++R4:4043:1024:10.00
++R4:3953:1024:10.00
++R4:3790:1024:10.00
+Forked child 7
+Got: +F3:1:1024:302.400000:404.300000 from 0
+Got: +F3:1:1024:305.300000:403.100000 from 1
+Got: +F3:1:1024:303.000000:396.600000 from 2
+Got: +F3:1:1024:298.900000:396.003996 from 3
+Got: +F3:1:1024:304.000000:395.300000 from 4
+Got: +F3:1:1024:305.600000:406.200000 from 5
+Got: +F3:1:1024:300.200000:379.000000 from 6
+Got: +F3:1:1024:306.200000:401.700000 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                  sign    verify    sign/s verify/s
+dsa 1024 bits 0.000412s 0.000314s   2425.6   3182.2
+✅ Test completed successfully
+
+--- 完成算法: dsa1024 ---
+
+--- 开始测试算法: ecdsap256 ---
+===========================================
+Testing PublicKey: ecdsap256 (Threads: 1, Accel: none)
+Command: openssl speed  ecdsap256
+-------------------------------------------
+Doing 256 bits sign ecdsa's for 10s: 584 256 bits ECDSA signs in 9.92s
+Doing 256 bits verify ecdsa's for 10s: 759 256 bits ECDSA verify in 9.91s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 256 bits ecdsa (nistp256)   0.0170s   0.0131s     58.9     76.6
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: ecdsap256 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 ecdsap256
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++DTP:256:sign:ecdsa:10
++R5:561:256:10.01
++R5:565:256:10.01
++R5:555:256:10.01
++R5:564:256:10.00
++R5:565:256:10.00
++R5:561:256:10.01
++R5:564:256:10.01
++R5:561:256:10.01
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++DTP:256:verify:ecdsa:10
++R6:760:256:10.00
++R6:742:256:10.01
++R6:754:256:10.01
++R6:743:256:10.01
++R6:752:256:10.01
++R6:754:256:10.02
++R6:747:256:10.02
++R6:771:256:10.02
+Forked child 7
+Got: +F4:3:256:56.400000:75.124875 from 0
+Got: +F4:3:256:56.043956:74.550898 from 1
+Got: +F4:3:256:56.443556:76.000000 from 2
+Got: +F4:3:256:55.444555:74.125874 from 3
+Got: +F4:3:256:56.043956:75.324675 from 4
+Got: +F4:3:256:56.343656:74.225774 from 5
+Got: +F4:3:256:56.043956:75.249501 from 6
+Got: +F4:3:256:56.500000:76.946108 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 256 bits ecdsa (nistp256)   0.0022s   0.0017s    449.3    601.5
+✅ Test completed successfully
+
+--- 完成算法: ecdsap256 ---
+
+--- 开始测试算法: ecdsap384 ---
+===========================================
+Testing PublicKey: ecdsap384 (Threads: 1, Accel: none)
+Command: openssl speed  ecdsap384
+-------------------------------------------
+Doing 384 bits sign ecdsa's for 10s: 326 384 bits ECDSA signs in 9.93s
+Doing 384 bits verify ecdsa's for 10s: 451 384 bits ECDSA verify in 9.90s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 384 bits ecdsa (nistp384)   0.0305s   0.0220s     32.8     45.6
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: ecdsap384 (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 ecdsap384
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++DTP:384:sign:ecdsa:10
++R5:319:384:10.00
++R5:320:384:10.02
++R5:318:384:10.02
++R5:318:384:10.00
++R5:320:384:10.01
++R5:321:384:10.02
++DTP:384:verify:ecdsa:10
++R5:319:384:10.02
++R5:319:384:10.01
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++DTP:384:verify:ecdsa:10
++R6:443:384:10.00
++R6:441:384:10.02
++R6:443:384:10.02
++R6:444:384:10.01
++R6:442:384:10.02
++R6:444:384:10.01
++R6:442:384:10.01
++R6:440:384:10.02
+Forked child 7
+Got: +F4:4:384:31.836327:44.155844 from 0
+Got: +F4:4:384:31.900000:44.300000 from 1
+Got: +F4:4:384:31.936128:44.355644 from 2
+Got: +F4:4:384:31.868132:43.912176 from 3
+Got: +F4:4:384:31.968032:44.355644 from 4
+Got: +F4:4:384:31.800000:44.011976 from 5
+Got: +F4:4:384:31.736527:44.211577 from 6
+Got: +F4:4:384:32.035928:44.111776 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 384 bits ecdsa (nistp384)   0.0039s   0.0028s    255.1    353.4
+✅ Test completed successfully
+
+--- 完成算法: ecdsap384 ---
+
+--- 开始测试算法: eddsa ---
+===========================================
+Testing PublicKey: eddsa (Threads: 1, Accel: none)
+Command: openssl speed  eddsa
+-------------------------------------------
+Doing 253 bits sign Ed25519's for 10s: 24640 253 bits Ed25519 signs in 9.91s 
+Doing 253 bits verify Ed25519's for 10s: 10344 253 bits Ed25519 verify in 9.91s
+Doing 456 bits sign Ed448's for 10s: 3193 456 bits Ed448 signs in 9.92s 
+Doing 456 bits verify Ed448's for 10s: 4236 456 bits Ed448 verify in 9.92s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 253 bits EdDSA (Ed25519)   0.0004s   0.0010s   2486.4   1043.8
+ 456 bits EdDSA (Ed448)   0.0031s   0.0023s    321.9    427.0
+✅ Test completed successfully
+
+===========================================
+Testing PublicKey: eddsa (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 eddsa
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++DTP:253:sign:Ed25519:10
++R8:24130:253:Ed25519:10.01
++R8:24408:253:Ed25519:10.01
++R8:24565:253:Ed25519:10.00
++R8:24488:253:Ed25519:10.00
++R8:24298:253:Ed25519:10.00
++R8:24323:253:Ed25519:10.00
++R8:24422:253:Ed25519:10.00
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++DTP:253:verify:Ed25519:10
++R8:24326:253:Ed25519:10.01
++DTP:253:verify:Ed25519:10
++R9:10175:253:Ed25519:10.01
++R9:10310:253:Ed25519:10.01
++R9:9987:253:Ed25519:10.01
++R9:10137:253:Ed25519:10.01
++R9:10068:253:Ed25519:10.01
++R9:10095:253:Ed25519:10.01
++R9:10131:253:Ed25519:10.01
++R9:10172:253:Ed25519:10.00
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++DTP:456:sign:Ed448:10
++R8:3223:456:Ed448:10.01
++R8:3250:456:Ed448:10.01
++DTP:456:verify:Ed448:10
++DTP:456:verify:Ed448:10
++R8:3229:456:Ed448:10.00
++DTP:456:verify:Ed448:10
++R8:3203:456:Ed448:10.01
++R8:3245:456:Ed448:10.01
++R8:3201:456:Ed448:10.01
++R8:3235:456:Ed448:10.01
++R8:3241:456:Ed448:10.01
++DTP:456:verify:Ed448:10
++DTP:456:verify:Ed448:10
++DTP:456:verify:Ed448:10
++DTP:456:verify:Ed448:10
++DTP:456:verify:Ed448:10
++R9:4141:456:Ed448:10.01
++R9:4159:456:Ed448:10.01
++R9:4056:456:Ed448:10.01
++R9:4145:456:Ed448:10.00
++R9:4152:456:Ed448:10.00
++R9:4119:456:Ed448:10.00
++R9:4090:456:Ed448:10.00
++R9:4162:456:Ed448:10.00
+Forked child 7
+Got: +F6:0:253:Ed25519:2438.361638:997.702298 from 0
+Got: +F6:1:456:Ed448:323.176823:409.000000 from 0
+Got: +F6:0:253:Ed25519:2429.800000:1008.491508 from 1
+Got: +F6:1:456:Ed448:323.776224:411.900000 from 1
+Got: +F6:0:253:Ed25519:2456.500000:1029.970030 from 2
+Got: +F6:1:456:Ed448:324.175824:414.500000 from 2
+Got: +F6:0:253:Ed25519:2432.300000:1012.087912 from 3
+Got: +F6:1:456:Ed448:321.978022:413.686314 from 3
+Got: +F6:0:253:Ed25519:2442.200000:1005.794206 from 4
+Got: +F6:1:456:Ed448:319.780220:416.200000 from 4
+Got: +F6:0:253:Ed25519:2448.800000:1016.483516 from 5
+Got: +F6:1:456:Ed448:324.675325:415.484515 from 5
+Got: +F6:0:253:Ed25519:2430.169830:1017.200000 from 6
+Got: +F6:1:456:Ed448:319.980020:415.200000 from 6
+Got: +F6:0:253:Ed25519:2410.589411:1012.687313 from 7
+Got: +F6:1:456:Ed448:322.900000:405.194805 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+                              sign    verify    sign/s verify/s
+ 253 bits EdDSA (Ed25519)   0.0001s   0.0001s  19488.7   8100.4
+ 456 bits EdDSA (Ed448)   0.0004s   0.0003s   2580.4   3301.2
+✅ Test completed successfully
+
+--- 完成算法: eddsa ---
+
+########################################### 
+测试随机数生成
+###########################################
+
+--- 开始测试: rand ---
+===========================================
+Testing Random: rand (Threads: 1, Accel: none)
+Command: openssl speed  rand
+-------------------------------------------
+Doing rand for 3s on 16 size blocks: 138959 rand's in 2.65s
+Doing rand for 3s on 64 size blocks: 122085 rand's in 2.70s
+Doing rand for 3s on 256 size blocks: 89383 rand's in 2.79s
+Doing rand for 3s on 1024 size blocks: 41534 rand's in 2.83s
+Doing rand for 3s on 8192 size blocks: 6935 rand's in 2.96s
+Doing rand for 3s on 16384 size blocks: 3455 rand's in 2.95s
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+rand               839.00k     2893.87k     8201.45k    15028.56k    19193.08k    19188.72k
+✅ Test completed successfully
+
+===========================================
+Testing Random: rand (Threads: 8, Accel: none)
+Command: openssl speed -multi 8 rand
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
++DT:rand:3:16
++DT:rand:3:16
++DT:rand:3:16
+Forked child 4
++DT:rand:3:16
++DT:rand:3:16
+Forked child 5
+Forked child 6
++DT:rand:3:16
++DT:rand:3:16
++DT:rand:3:16
++R:126964:rand:3.010000
++R:123402:rand:3.000000
++R:126230:rand:3.000000
++R:123298:rand:3.000000
++R:121421:rand:3.010000
++DT:rand:3:64
++DT:rand:3:64
++DT:rand:3:64
++DT:rand:3:64
++DT:rand:3:64
++R:123095:rand:3.010000
++R:127008:rand:3.010000
++R:122316:rand:3.010000
++DT:rand:3:64
++DT:rand:3:64
++DT:rand:3:64
++R:114775:rand:3.000000
++R:115667:rand:3.000000
++R:115079:rand:3.000000
++R:112697:rand:3.000000
++R:115943:rand:3.000000
++DT:rand:3:256
++DT:rand:3:256
++DT:rand:3:256
++DT:rand:3:256
++DT:rand:3:256
++R:115006:rand:3.000000
++R:116201:rand:3.000000
++R:115115:rand:3.000000
++DT:rand:3:256
++DT:rand:3:256
++DT:rand:3:256
++R:84364:rand:3.000000
++R:84099:rand:3.000000
++R:85553:rand:3.000000
++R:83872:rand:3.000000
++R:84070:rand:3.000000
++DT:rand:3:1024
++DT:rand:3:1024
++DT:rand:3:1024
++DT:rand:3:1024
++DT:rand:3:1024
++R:81266:rand:3.010000
++R:83769:rand:3.010000
++R:84202:rand:3.010000
++DT:rand:3:1024
++DT:rand:3:1024
++DT:rand:3:1024
++R:40085:rand:3.010000
++R:40266:rand:3.010000
++R:39866:rand:3.010000
++R:40077:rand:3.010000
++R:40307:rand:3.010000
++DT:rand:3:8192
++DT:rand:3:8192
++DT:rand:3:8192
++DT:rand:3:8192
++DT:rand:3:8192
++R:38952:rand:3.000000
++R:40099:rand:3.000000
++R:39985:rand:3.000000
++DT:rand:3:8192
++DT:rand:3:8192
++DT:rand:3:8192
++R:6835:rand:3.000000
++R:6658:rand:3.000000
++DT:rand:3:16384
++R:6632:rand:3.000000
++DT:rand:3:16384
++DT:rand:3:16384
++R:6849:rand:3.000000
++R:6831:rand:3.000000
++DT:rand:3:16384
++DT:rand:3:16384
++R:6814:rand:3.000000
++R:6841:rand:3.000000
++DT:rand:3:16384
++R:6818:rand:3.000000
++DT:rand:3:16384
++DT:rand:3:16384
++R:3496:rand:3.010000
++R:3508:rand:3.010000
++R:3504:rand:3.010000
++R:3514:rand:3.010000
++R:3508:rand:3.010000
++R:3497:rand:3.010000
++R:3491:rand:3.010000
++R:3509:rand:3.010000
+Forked child 7
+Got: +H:16:64:256:1024:8192:16384 from 0
+Got: +F:27:rand:673226.67:2448533.33:7300522.67:13698466.45:18702336.00:19127367.44 from 0
+Got: +H:16:64:256:1024:8192:16384 from 1
+Got: +F:27:rand:657589.33:2467562.67:7173973.33:13636890.37:18180778.67:19094708.31 from 1
+Got: +H:16:64:256:1024:8192:16384 from 2
+Got: +F:27:rand:645427.24:2404202.67:7176448.00:13634168.77:18109781.33:19029390.03 from 2
+Got: +H:16:64:256:1024:8192:16384 from 3
+Got: +F:27:rand:658144.00:2455018.67:7157077.33:13562386.71:18664106.67:19072935.55 from 3
+Got: +H:16:64:256:1024:8192:16384 from 4
+Got: +F:27:rand:674891.69:2473450.67:7199061.33:13712414.62:18653184.00:19094708.31 from 4
+Got: +H:16:64:256:1024:8192:16384 from 5
+Got: +F:27:rand:654325.58:2455786.67:6911659.80:13295616.00:18606762.67:19002174.09 from 5
+Got: +H:16:64:256:1024:8192:16384 from 6
+Got: +F:27:rand:650184.72:2453461.33:7124539.53:13648213.33:18680490.67:19100151.50 from 6
+Got: +H:16:64:256:1024:8192:16384 from 7
+Got: +F:27:rand:675125.58:2478954.67:7161366.11:13687125.33:18617685.33:19034833.22 from 7
+version: 3.0.12
+built on: Mon Mar 24 23:07:58 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -Wall -O3 -O2 -flto=auto -ffat-lto-objects -g -grecord-gcc-switches -pipe -fstack-protector-strong -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/generic-hardened-cc1 -fasynchronous-unwind-tables -fstack-clash-protection -Wa,--noexecstack -Wa,--generate-missing-build-notes=yes -specs=/usr/lib/rpm/generic-hardened-ld -DOPENSSL_USE_NODELETE -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DZLIB -DNDEBUG -DPURIFY -DDEVRANDOM="\"/dev/urandom\""
+CPUINFO: N/A
+rand              5288.91k    19636.97k    57204.65k   108875.28k   148215.13k   152556.27k
+✅ Test completed successfully
+
+===========================================
+Testing Random: rand (Threads: 1, Accel: none)
+Command: openssl speed -rand 16 rand
+-------------------------------------------
+Can't load 16 into RNG
+202493A43F000000:error:12000079:random number generator:RAND_load_file:Cannot open file:crypto/rand/randfile.c:106:Filename=16
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Random: rand (Threads: 1, Accel: none)
+Command: openssl speed -rand 1024 rand
+-------------------------------------------
+Can't load 1024 into RNG
+20B4DBBB3F000000:error:12000079:random number generator:RAND_load_file:Cannot open file:crypto/rand/randfile.c:106:Filename=1024
+❌ Test failed or unsupported (exit code: 1)
+
+===========================================
+Testing Random: rand (Threads: 1, Accel: none)
+Command: openssl speed -rand 16384 rand
+-------------------------------------------
+Can't load 16384 into RNG
+2084C2933F000000:error:12000079:random number generator:RAND_load_file:Cannot open file:crypto/rand/randfile.c:106:Filename=16384
+❌ Test failed or unsupported (exit code: 1)
+
+--- 完成测试: rand ---
+
+########################################### 
+综合性能测试
+###########################################
+
+===========================================
+运行默认 openssl speed 测试
+-------------------------------------------
+Doing md5 for 3s on 16 size blocks: 698811 md5's in 2.98s
+Doing md5 for 3s on 64 size blocks: 642260 md5's in 2.98s
+Doing md5 for 3s on 256 size blocks: 522559 md5's in 2.98s
+Doing md5 for 3s on 1024 size blocks: 293079 md5's in 2.99s
+Doing md5 for 3s on 8192 size blocks: 57236 md5's in 2.98s
+Doing md5 for 3s on 16384 size blocks: 29766 md5's in 2.98s
+Doing sha1 for 3s on 16 size blocks: 619712 sha1's in 2.98s
+Doing sha1 for 3s on 64 size blocks: 549616 sha1's in 2.98s
+Doing sha1 for 3s on 256 size blocks: 392137 sha1's in 2.99s
+Doing sha1 for 3s on 1024 size blocks: 186593 sha1's in 2.99s
+Doing sha1 for 3s on 8192 size blocks: 31621 sha1's in 2.98s
+Doing sha1 for 3s on 16384 size blocks: 16238 sha1's in 2.98s
+Doing sha256 for 3s on 16 size blocks: 462768 sha256's in 2.98s
+Doing sha256 for 3s on 64 size blocks: 353175 sha256's in 2.98s
+Doing sha256 for 3s on 256 size blocks: 203880 sha256's in 2.99s
+Doing sha256 for 3s on 1024 size blocks: 74839 sha256's in 2.98s
+Doing sha256 for 3s on 8192 size blocks: 10955 sha256's in 2.99s
+Doing sha256 for 3s on 16384 size blocks: 5553 sha256's in 2.98s
+Doing sha512 for 3s on 16 size blocks: 476005 sha512's in 2.99s
+Doing sha512 for 3s on 64 size blocks: 485594 sha512's in 2.98s
+Doing sha512 for 3s on 256 size blocks: 293090 sha512's in 2.98s
+Doing sha512 for 3s on 1024 size blocks: 135122 sha512's in 2.99s
+Doing sha512 for 3s on 8192 size blocks: 19898 sha512's in 2.98s
+Doing sha512 for 3s on 16384 size blocks: 10333 sha512's in 2.99s
+Doing rmd160 for 3s on 16 size blocks: 619564 rmd160's in 2.98s
+Doing rmd160 for 3s on 64 size blocks: 523005 rmd160's in 2.98s
+Doing rmd160 for 3s on 256 size blocks: 354012 rmd160's in 2.99s
+Doing rmd160 for 3s on 1024 size blocks: 154883 rmd160's in 2.98s
+Doing rmd160 for 3s on 8192 size blocks: 24659 rmd160's in 2.99s
+Doing rmd160 for 3s on 16384 size blocks: 12554 rmd160's in 2.98s
+Doing hmac(md5) for 3s on 16 size blocks: 556774 hmac(md5)'s in 2.99s
+Doing hmac(md5) for 3s on 64 size blocks: 528646 hmac(md5)'s in 2.98s
+Doing hmac(md5) for 3s on 256 size blocks: 441908 hmac(md5)'s in 2.99s
+Doing hmac(md5) for 3s on 1024 size blocks: 265491 hmac(md5)'s in 2.98s
+Doing hmac(md5) for 3s on 8192 size blocks: 55968 hmac(md5)'s in 2.98s
+Doing hmac(md5) for 3s on 16384 size blocks: 29482 hmac(md5)'s in 2.98s
+Doing des-ede3 for 3s on 16 size blocks: 749454 des-ede3's in 2.97s
+Doing des-ede3 for 3s on 64 size blocks: 204272 des-ede3's in 2.96s
+Doing des-ede3 for 3s on 256 size blocks: 52431 des-ede3's in 2.97s
+Doing des-ede3 for 3s on 1024 size blocks: 默认测试完成或超时
+
+===========================================
+运行多线程综合测试
+-------------------------------------------
+Forked child 0
+Forked child 1
+Forked child 2
+Forked child 3
+Forked child 4
+Forked child 5
+Forked child 6
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++DT:md5:3:16
++R:693691:md5:3.010000
++R:700307:md5:3.010000
++DT:md5:3:64
++DT:md5:3:64
++R:642895:md5:3.000000
++R:684935:md5:3.000000
++DT:md5:3:64
++DT:md5:3:64
++R:688983:md5:3.000000
++DT:md5:3:64
++R:688423:md5:3.000000
++DT:md5:3:64
++R:691330:md5:3.000000
++DT:md5:3:64
++R:692922:md5:3.000000
++DT:md5:3:64
++R:638321:md5:3.000000
++R:641666:md5:3.000000
++DT:md5:3:256
++DT:md5:3:256
++R:640712:md5:3.010000
++R:598277:md5:3.010000
++DT:md5:3:256
++DT:md5:3:256
++R:642046:md5:3.010000
++DT:md5:3:256
++R:639354:md5:3.000000
++DT:md5:3:256
++R:643716:md5:3.000000
++DT:md5:3:256
++R:643049:md5:3.010000
++DT:md5:3:256
++R:513366:md5:3.010000
++R:517039:md5:3.010000
++DT:md5:3:1024
++DT:md5:3:1024
++R:489580:md5:3.000000
++R:517142:md5:3.000000
++DT:md5:3:1024
++DT:md5:3:1024
++R:519657:md5:3.000000
++DT:md5:3:1024
++R:519017:md5:3.010000
++DT:md5:3:1024
++R:516502:md5:3.010000
++DT:md5:3:1024
++R:516205:md5:3.000000
++DT:md5:3:1024
++R:288649:md5:3.000000
++R:285479:md5:3.000000
++DT:md5:3:8192
++DT:md5:3:8192
++R:267106:md5:3.010000
++R:284655:md5:3.010000
++DT:md5:3:8192
++DT:md5:3:8192
++R:290059:md5:3.000000
++DT:md5:3:8192
++R:288490:md5:3.000000
++DT:md5:3:8192
++R:286575:md5:3.000000
++DT:md5:3:8192
++R:288204:md5:3.010000
++DT:md5:3:8192
++R:56503:md5:3.010000
++R:55869:md5:3.010000
++DT:md5:3:16384
++DT:md5:3:16384
++R:56361:md5:3.000000
++R:55897:md5:3.000000
++DT:md5:3:16384
++DT:md5:3:16384
++R:56474:md5:3.010000
++DT:md5:3:16384
++R:56565:md5:3.010000
++DT:md5:3:16384
++R:56714:md5:3.010000
++DT:md5:3:16384
++R:56362:md5:3.000000
++DT:md5:3:16384
++R:29441:md5:3.000000
++R:29245:md5:3.000000
++DT:sha1:3:16
++DT:sha1:3:16
++R:29440:md5:3.000000
++R:29430:md5:3.000000
++DT:sha1:3:16
++DT:sha1:3:16
++R:29567:md5:3.000000
++DT:sha1:3:16
++R:29481:md5:3.000000
++DT:sha1:3:16
++R:29638:md5:3.000000
++DT:sha1:3:16
++R:29328:md5:3.000000
++DT:sha1:3:16
++R:607702:sha1:3.000000
++R:612565:sha1:3.000000
++DT:sha1:3:64
++DT:sha1:3:64
++R:572497:sha1:3.010000
++R:606407:sha1:3.010000
++DT:sha1:3:64
++DT:sha1:3:64
++R:612025:sha1:3.010000
++DT:sha1:3:64
++R:612157:sha1:3.000000
++DT:sha1:3:64
++R:597793:sha1:3.000000
++DT:sha1:3:64
++R:606495:sha1:3.010000
++DT:sha1:3:64
++R:535918:sha1:3.010000
++R:530780:sha1:3.010000
++DT:sha1:3:256
++DT:sha1:3:256
++R:497826:sha1:3.000000
++R:530157:sha1:3.000000
++DT:sha1:3:256
++DT:sha1:3:256
++R:536202:sha1:3.000000
++DT:sha1:3:256
++R:536966:sha1:3.010000
++DT:sha1:3:256
++R:533432:sha1:3.010000
++DT:sha1:3:256
++R:530376:sha1:3.000000
++DT:sha1:3:256
++R:383675:sha1:3.000000
++R:381671:sha1:3.000000
++DT:sha1:3:1024
++DT:sha1:3:1024
++R:380742:sha1:3.010000
++R:358550:sha1:3.010000
++DT:sha1:3:1024
++DT:sha1:3:1024
++R:384475:sha1:3.000000
++DT:sha1:3:1024
++R:383704:sha1:3.000000
++DT:sha1:3:1024
++R:379142:sha1:3.000000
++DT:sha1:3:1024
++R:380696:sha1:3.010000
++DT:sha1:3:1024
++R:182660:sha1:3.010000
++R:182552:sha1:3.010000
++DT:sha1:3:8192
++DT:sha1:3:8192
++R:181955:sha1:3.000000
++R:178716:sha1:3.000000
++DT:sha1:3:8192
++DT:sha1:3:8192
++R:183444:sha1:3.010000
++DT:sha1:3:8192
++R:183576:sha1:3.010000
++DT:sha1:3:8192
++R:182720:sha1:3.010000
++DT:sha1:3:8192
++R:181957:sha1:3.000000
++DT:sha1:3:8192
++R:30999:sha1:3.000000
++R:30947:sha1:3.000000
++DT:sha1:3:16384
++DT:sha1:3:16384
++R:30900:sha1:3.000000
++R:30947:sha1:3.000000
++DT:sha1:3:16384
++DT:sha1:3:16384
++R:31126:sha1:3.000000
++DT:sha1:3:16384
++R:31102:sha1:3.000000
++DT:sha1:3:16384
++R:31099:sha1:3.000000
++DT:sha1:3:16384
++R:30815:sha1:3.000000
++DT:sha1:3:16384
++R:15887:sha1:3.000000
++R:15916:sha1:3.000000
++DT:sha256:3:16
++DT:sha256:3:16
++R:15874:sha1:3.010000
++R:15882:sha1:3.010000
++DT:sha256:3:16
++DT:sha256:3:16
++R:15958:sha1:3.010000
++DT:sha256:3:16
++R:15961:sha1:3.000000
++DT:sha256:3:16
++R:15958:sha1:3.000000
++DT:sha256:3:16
++R:15830:sha1:3.010000
++DT:sha256:3:16
++R:489890:sha256:3.010000
++R:487374:sha256:3.010000
++DT:sha256:3:64
++DT:sha256:3:64
++R:460133:sha256:3.000000
++R:472923:sha256:3.000000
++DT:sha256:3:64
++DT:sha256:3:64
++R:491296:sha256:3.000000
++DT:sha256:3:64
++R:490079:sha256:3.010000
++DT:sha256:3:64
++R:493514:sha256:3.010000
++DT:sha256:3:64
++R:489564:sha256:3.000000
++DT:sha256:3:64
++R:361966:sha256:3.000000
++R:359952:sha256:3.000000
++DT:sha256:3:256
++DT:sha256:3:256
++R:354158:sha256:3.010000
++R:346680:sha256:3.010000
++DT:sha256:3:256
++DT:sha256:3:256
++R:352272:sha256:3.000000
++DT:sha256:3:256
++R:349254:sha256:3.000000
++DT:sha256:3:256
++R:363955:sha256:3.000000
++DT:sha256:3:256
++R:339792:sha256:3.010000
++DT:sha256:3:256
++R:202938:sha256:3.010000
++R:202994:sha256:3.010000
++DT:sha256:3:1024
++DT:sha256:3:1024
++R:202930:sha256:3.000000
++R:198612:sha256:3.000000
++DT:sha256:3:1024
++DT:sha256:3:1024
++R:203892:sha256:3.010000
++DT:sha256:3:1024
++R:204329:sha256:3.010000
++DT:sha256:3:1024
++R:204114:sha256:3.010000
++DT:sha256:3:1024
++R:202503:sha256:3.000000
++DT:sha256:3:1024
++R:74218:sha256:3.000000
++R:74298:sha256:3.000000
++DT:sha256:3:8192
++DT:sha256:3:8192
++R:73616:sha256:3.000000
++R:74147:sha256:3.000000
++DT:sha256:3:8192
++DT:sha256:3:8192
++R:74462:sha256:3.000000
++DT:sha256:3:8192
++R:74481:sha256:3.000000
++DT:sha256:3:8192
++R:74538:sha256:3.000000
++DT:sha256:3:8192
++R:73904:sha256:3.000000
++DT:sha256:3:8192
++R:10719:sha256:3.000000
++R:10751:sha256:3.000000
++DT:sha256:3:16384
++DT:sha256:3:16384
++R:10730:sha256:3.010000
++R:10738:sha256:3.010000
++DT:sha256:3:16384
++DT:sha256:3:16384
++R:10771:sha256:3.010000
++DT:sha256:3:16384
++R:10782:sha256:3.000000
++DT:sha256:3:16384
++R:10779:sha256:3.000000
++DT:sha256:3:16384
++R:10688:sha256:3.010000
++DT:sha256:3:16384
++R:5387:sha256:3.010000
++R:5431:sha256:3.010000
++DT:sha512:3:16
++DT:sha512:3:16
++R:5157:sha256:3.000000
++R:5421:sha256:3.000000
++DT:sha512:3:16
++DT:sha512:3:16
++R:5445:sha256:3.000000
++DT:sha512:3:16
++R:5442:sha256:3.010000
++DT:sha512:3:16
++R:5445:sha256:3.010000
++DT:sha512:3:16
++R:5391:sha256:3.000000
++DT:sha512:3:16
++R:499021:sha512:3.000000
++R:495783:sha512:3.000000
++DT:sha512:3:64
++DT:sha512:3:64
++R:498000:sha512:3.010000
++R:469472:sha512:3.010000
++DT:sha512:3:64
++DT:sha512:3:64
++R:502346:sha512:3.000000
++DT:sha512:3:64
++R:500925:sha512:3.000000
++DT:sha512:3:64
++R:501571:sha512:3.000000
++DT:sha512:3:64
++R:498830:sha512:3.010000
++DT:sha512:3:64
++R:497034:sha512:3.010000
++R:500059:sha512:3.010000
++DT:sha512:3:256
++DT:sha512:3:256
++R:469132:sha512:3.000000
++R:498316:sha512:3.000000
++DT:sha512:3:256
++DT:sha512:3:256
++R:500640:sha512:3.010000
++DT:sha512:3:256
++R:499515:sha512:3.010000
++DT:sha512:3:256
++R:500466:sha512:3.010000
++DT:sha512:3:256
++R:498034:sha512:3.000000
++DT:sha512:3:256
++R:297150:sha512:3.000000
++R:299028:sha512:3.000000
++DT:sha512:3:1024
++DT:sha512:3:1024
++R:287882:sha512:3.000000
++R:298456:sha512:3.000000
++DT:sha512:3:1024
++DT:sha512:3:1024
++R:301140:sha512:3.000000
++DT:sha512:3:1024
++R:299378:sha512:3.000000
++DT:sha512:3:1024
++R:299805:sha512:3.000000
++DT:sha512:3:1024
++R:297720:sha512:3.000000
++DT:sha512:3:1024
++R:134883:sha512:3.000000
++R:134084:sha512:3.000000
++DT:sha512:3:8192
++DT:sha512:3:8192
++R:133092:sha512:3.010000
++R:131875:sha512:3.010000
++DT:sha512:3:8192
++DT:sha512:3:8192
++R:135339:sha512:3.010000
++DT:sha512:3:8192
++R:135875:sha512:3.000000
++DT:sha512:3:8192
++R:135502:sha512:3.000000
++DT:sha512:3:8192
++R:133813:sha512:3.010000
++DT:sha512:3:8192
++R:22081:sha512:3.010000
++R:21958:sha512:3.010000
++DT:sha512:3:16384
++DT:sha512:3:16384
++R:21351:sha512:3.000000
++R:21969:sha512:3.000000
++DT:sha512:3:16384
++DT:sha512:3:16384
++R:22068:sha512:3.000000
++DT:sha512:3:16384
++R:22093:sha512:3.010000
++DT:sha512:3:16384
++R:22046:sha512:3.010000
++DT:sha512:3:16384
++R:21801:sha512:3.000000
++DT:sha512:3:16384
++R:11274:sha512:3.000000
++R:11251:sha512:3.000000
++DT:rmd160:3:16
++DT:rmd160:3:16
++R:11272:sha512:3.010000
++R:11272:sha512:3.010000
++DT:rmd160:3:16
++DT:rmd160:3:16
++R:11308:sha512:3.000000
++DT:rmd160:3:16
++R:11321:sha512:3.000000
++DT:rmd160:3:16
++R:11313:sha512:3.000000
++DT:rmd160:3:16
++R:11181:sha512:3.010000
++DT:rmd160:3:16
++R:611004:rmd160:3.010000
++R:606782:rmd160:3.010000
++DT:rmd160:3:64
++DT:rmd160:3:64
++R:610934:rmd160:3.000000
++R:570894:rmd160:3.000000
++DT:rmd160:3:64
++DT:rmd160:3:64
++R:613020:rmd160:3.010000
++DT:rmd160:3:64
++R:614395:rmd160:3.010000
++DT:rmd160:3:64
++R:610376:rmd160:3.010000
++DT:rmd160:3:64
++R:610334:rmd160:3.000000
++DT:rmd160:3:64
++R:518104:rmd160:3.000000
++R:517682:rmd160:3.000000
++DT:rmd160:3:256
++DT:rmd160:3:256
++R:516394:rmd160:3.000000
++R:490050:rmd160:3.000000
++DT:rmd160:3:256
++DT:rmd160:3:256
++R:518672:rmd160:3.000000
++DT:rmd160:3:256
++R:516251:rmd160:3.000000
++DT:rmd160:3:256
++R:514077:rmd160:3.000000
++DT:rmd160:3:256
++R:516547:rmd160:3.000000
++DT:rmd160:3:256
++R:343014:rmd160:3.000000
++R:337764:rmd160:3.000000
++DT:rmd160:3:1024
++DT:rmd160:3:1024
++R:337255:rmd160:3.010000
++R:325725:rmd160:3.010000
++DT:rmd160:3:1024
++DT:rmd160:3:1024
++R:342198:rmd160:3.010000
++DT:rmd160:3:1024
++R:343699:rmd160:3.000000
++DT:rmd160:3:1024
++R:337510:rmd160:3.000000
++DT:rmd160:3:1024
++R:336161:rmd160:3.010000
++DT:rmd160:3:1024
++R:140653:rmd160:3.010000
++R:142663:rmd160:3.010000
++DT:rmd160:3:8192
++DT:rmd160:3:8192
++R:142350:rmd160:3.000000
++R:142398:rmd160:3.000000
++DT:rmd160:3:8192
++DT:rmd160:3:8192
++R:150703:rmd160:3.000000
++DT:rmd160:3:8192
++R:143388:rmd160:3.010000
++DT:rmd160:3:8192
++R:143273:rmd160:3.010000
++DT:rmd160:3:8192
++R:142476:rmd160:3.000000
++DT:rmd160:3:8192
++R:22849:rmd160:3.000000
++R:22439:rmd160:3.000000
++DT:rmd160:3:16384
++DT:rmd160:3:16384
++R:22288:rmd160:3.010000
++R:22300:rmd160:3.010000
++DT:rmd160:3:16384
++DT:rmd160:3:16384
++R:22819:rmd160:3.000000
++DT:rmd160:3:16384
++R:22736:rmd160:3.000000
++DT:rmd160:3:16384
++R:22433:rmd160:3.000000
++DT:rmd160:3:16384
++R:22298:rmd160:3.010000
++DT:rmd160:3:16384
++R:11388:rmd160:3.010000
++R:11448:rmd160:3.010000
++DT:hmac(md5):3:16
++DT:hmac(md5):3:16
++R:11345:rmd160:3.000000
++R:11478:rmd160:3.000000
++DT:hmac(md5):3:16
++DT:hmac(md5):3:16
++R:12023:rmd160:3.010000
++DT:hmac(md5):3:16
++R:11871:rmd160:3.010000
++DT:hmac(md5):3:16
++R:11436:rmd160:3.010000
++DT:hmac(md5):3:16
++R:11398:rmd160:3.000000
++DT:hmac(md5):3:16
++R:556566:hmac(md5):3.000000
++R:553942:hmac(md5):3.000000
++DT:hmac(md5):3:64
++DT:hmac(md5):3:64
++R:551651:hmac(md5):3.000000
++R:557483:hmac(md5):3.000000
++DT:hmac(md5):3:64
++DT:hmac(md5):3:64
++R:557735:hmac(md5):3.000000
++DT:hmac(md5):3:64
++R:559278:hmac(md5):3.000000
++DT:hmac(md5):3:64
++R:560585:hmac(md5):3.000000
++DT:hmac(md5):3:64
++R:554905:hmac(md5):3.000000
++DT:hmac(md5):3:64
++R:525886:hmac(md5):3.010000
++R:517904:hmac(md5):3.010000
++DT:hmac(md5):3:256
++DT:hmac(md5):3:256
++R:526843:hmac(md5):3.010000
++R:521259:hmac(md5):3.010000
++DT:hmac(md5):3:256
++DT:hmac(md5):3:256
++R:529399:hmac(md5):3.010000
++DT:hmac(md5):3:256
++R:529064:hmac(md5):3.000000
++DT:hmac(md5):3:256
++R:532093:hmac(md5):3.000000
++DT:hmac(md5):3:256
++R:527463:hmac(md5):3.010000
++DT:hmac(md5):3:256
++R:439113:hmac(md5):3.000000
++R:437543:hmac(md5):3.000000
++DT:hmac(md5):3:1024
++DT:hmac(md5):3:1024
++R:439116:hmac(md5):3.000000
++R:436453:hmac(md5):3.000000
++DT:hmac(md5):3:1024
++DT:hmac(md5):3:1024
++R:440672:hmac(md5):3.000000
++DT:hmac(md5):3:1024
++R:441622:hmac(md5):3.010000
++DT:hmac(md5):3:1024
++R:442853:hmac(md5):3.010000
++DT:hmac(md5):3:1024
++R:438721:hmac(md5):3.000000
++DT:hmac(md5):3:1024
++R:261918:hmac(md5):3.010000
++R:263013:hmac(md5):3.010000
++DT:hmac(md5):3:8192
++DT:hmac(md5):3:8192
++R:262870:hmac(md5):3.010000
++DT:hmac(md5):3:8192
++R:262311:hmac(md5):3.010000
++DT:hmac(md5):3:8192
++R:261975:hmac(md5):3.000000
++DT:hmac(md5):3:8192
++R:264209:hmac(md5):3.000000
++DT:hmac(md5):3:8192
++R:264794:hmac(md5):3.000000
++DT:hmac(md5):3:8192
++R:262998:hmac(md5):3.010000
++DT:hmac(md5):3:8192
++R:55327:hmac(md5):3.000000
++R:55279:hmac(md5):3.000000
++DT:hmac(md5):3:16384
++DT:hmac(md5):3:16384
++R:55320:hmac(md5):3.000000
++R:55497:hmac(md5):3.000000
++DT:hmac(md5):3:16384
++DT:hmac(md5):3:16384
++R:54772:hmac(md5):3.010000
++DT:hmac(md5):3:16384
++R:55112:hmac(md5):3.010000
++DT:hmac(md5):3:16384
++R:55612:hmac(md5):3.010000
++DT:hmac(md5):3:16384
++R:55226:hmac(md5):3.000000
++DT:hmac(md5):3:16384
++R:29136:hmac(md5):3.000000
++R:29097:hmac(md5):3.000000
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++R:29096:hmac(md5):3.000000
++R:29233:hmac(md5):3.000000
++DT:des-ede3:3:16
++DT:des-ede3:3:16
++R:29186:hmac(md5):3.000000
++DT:des-ede3:3:16
++R:29264:hmac(md5):3.000000
++DT:des-ede3:3:16
++R:29305:hmac(md5):3.000000
++DT:des-ede3:3:16
++R:29069:hmac(md5):3.000000
++DT:des-ede3:3:16
++R:725370:des-ede3:3.000000
++R:709704:des-ede3:3.000000
++DT:des-ede3:3:64
++DT:des-ede3:3:64
++R:737781:des-ede3:3.010000
++R:713671:des-ede3:3.010000
++DT:des-ede3:3:64
++DT:des-ede3:3:64
++R:739622:des-ede3:3.010000
++DT:des-ede3:3:64
++R:722432:des-ede3:3.000000
++DT:des-ede3:3:64
++R:733489:des-ede3:3.000000
++DT:des-ede3:3:64
++R:733010:des-ede3:3.010000
++DT:des-ede3:3:64
++R:192499:des-ede3:3.010000
++R:197239:des-ede3:3.010000
++DT:des-ede3:3:256
++DT:des-ede3:3:256
++R:201798:des-ede3:3.000000
++R:190493:des-ede3:3.000000
++DT:des-ede3:3:256
++DT:des-ede3:3:256
++R:202248:des-ede3:3.000000
++DT:des-ede3:3:256
++R:201974:des-ede3:3.010000
++DT:des-ede3:3:256
++R:200986:des-ede3:3.010000
++DT:des-ede3:3:256
++R:200562:des-ede3:3.000000
++DT:des-ede3:3:256
++R:51381:des-ede3:3.000000
++R:50376:des-ede3:3.000000
++DT:des-ede3:3:1024
++DT:des-ede3:3:1024
++R:51417:des-ede3:3.010000
++R:51584:des-ede3:3.010000
++DT:des-ede3:3:1024
++DT:des-ede3:3:1024
++R:51635:des-ede3:3.000000
++DT:des-ede3:3:1024
++R:51585:des-ede3:3.000000
++DT:des-ede3:3:1024
++R:51353:des-ede3:3.000000
++DT:des-ede3:3:1024
++R:51276:des-ede3:3.010000
++DT:des-ede3:3:1024
+多线程测试完成或超时
+
+########################################### 
+测试完成总结
+###########################################
+完成时间: Thu Jun  5 02:41:23 AM UTC 2025
+测试的算法类别:
+  - 对称加密算法: 9 个
+  - 哈希算法: 6 个
+  - 非对称算法: 7 个
+  - 随机数测试: 1 个
+总测试数量: 105
+所有结果已保存到此文件
+########################################### 
