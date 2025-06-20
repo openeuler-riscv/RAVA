@@ -1,0 +1,53 @@
+
+
+Reading command line input...
+
+Setting up suite based on input...
+
+
+RAJA performance suite run summary....
+--------------------------------------
+
+How suite will be run:
+	 # passes = 1
+	 Kernel size = 0
+	 Kernel rep factor = 1
+	 Output files will be named ./RAJAPerf*
+
+The following kernels and variants (when available for a kernel) will be run:
+
+Data Spaces
+--------
+Seq - Host
+
+Reduction Data Spaces
+--------
+Seq - Host
+
+MPI Data Spaces
+--------
+Seq - Host
+
+Variants and Tunings
+--------
+Base_Seq-default
+Lambda_Seq-default
+RAJA_Seq-default
+
+Kernels       ,    Problem size ,    Reps ,    Iterations/rep , Kernels/rep ,    Bytes/rep ,    FLOPS/rep ,    BytesRead/rep ,    BytesWritten/rep ,    BytesAtomicModifyWritten/rep
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Basic_COPY8   ,               0 ,      50 ,                 0 ,           1 ,            0 ,            0 ,                0 ,                   0 ,                               0
+
+
+Run warmup kernels...
+
+Run kernel -- Basic_DAXPY
+
+
+Running specified kernels and variants...
+
+
+Generate run report files...
+
+
+DONE!!!....
