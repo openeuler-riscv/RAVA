@@ -1,0 +1,111 @@
+===========================================
+OpenSSL 功能测试开始
+===========================================
+开始时间: Thu Jun  5 03:15:03 AM UTC 2025
+系统信息: Linux special 6.6.0-72.6.0.56.oe2503.riscv64 #1 SMP PREEMPT Wed Mar 26 18:19:48 CST 2025 riscv64 riscv64 riscv64 GNU/Linux
+OpenSSL 版本: OpenSSL 3.0.12 24 Oct 2023 (Library: OpenSSL 3.0.12 24 Oct 2023)
+
+[*] 创建测试文件
+测试文件内容: hello openssl
+
+===========================================
+对称加密/解密（AES）测试
+===========================================
+[*] 对称加密 (AES-256-CBC)
+✅ AES 加密成功
+-rw-r--r-- 1 root root 32 Jun  5 03:15 encrypted_aes.bin
+[*] 对称解密
+✅ AES 解密成功
+解密结果: hello openssl
+
+===========================================
+哈希摘要测试
+===========================================
+[*] 生成哈希
+✅ MD5 哈希: MD5(plain.txt)= db0d8f9d68de6c2412c74fd58344c941
+✅ SHA1 哈希: SHA1(plain.txt)= ddb01774a356b5dfaa5849f27de4e6c73e23fb31
+✅ SHA256 哈希: SHA2-256(plain.txt)= 32a4652ec63b896e60e82bdecbcfe97394037243cb2c8e63d7dd79b0a7d4f383
+
+===========================================
+RSA 密钥生成测试
+===========================================
+[*] 生成 RSA 私钥 (2048 位)
+....+++++++++++++++++++++++++++++++++++++++*...+...+.......+++++++++++++++++++++++++++++++++++++++*..+...+.+............+............+............+...........+...+....+.....++++++
+....+...+...+....+++++++++++++++++++++++++++++++++++++++*........+......+.+++++++++++++++++++++++++++++++++++++++*....+..+...+...+....+........+...+....+...+...........+....+......+...........+..............................+....+.....................+.....+..........+.........+..+..........+...+.....+.+.....+.........++++++
+✅ RSA 私钥生成成功
+-rw------- 1 root root 1704 Jun  5 03:15 rsa_private.pem
+[*] 提取 RSA 公钥
+writing RSA key
+✅ RSA 公钥提取成功
+-rw-r--r-- 1 root root 451 Jun  5 03:15 rsa_public.pem
+
+===========================================
+RSA 非对称加密测试
+===========================================
+[*] 非对称加密（使用公钥）
+原始消息: secret message
+The command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.
+✅ RSA 加密成功
+-rw-r--r-- 1 root root 256 Jun  5 03:15 secret_encrypted.bin
+[*] 非对称解密（使用私钥）
+The command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.
+✅ RSA 解密成功
+解密结果: secret message
+
+===========================================
+支持的算法列表
+===========================================
+[*] 导出 OpenSSL 支持的算法列表
+对称加密算法:
+Legacy:
+  RC5 => RC5-CBC
+  AES-128-CBC
+  id-aes128-CCM
+  AES-128-CFB
+  AES-128-CFB1
+  AES-128-CFB8
+  AES-128-CTR
+  AES-128-ECB
+  id-aes128-GCM
+... (完整列表保存在 supported_ciphers.txt)
+
+哈希算法:
+Legacy:
+  RSA-MD4 => MD4
+  RSA-MD5 => MD5
+  RSA-RIPEMD160 => RIPEMD160
+  RSA-SHA1 => SHA1
+  RSA-SHA1-2 => RSA-SHA1
+  RSA-SHA224 => SHA224
+  RSA-SHA256 => SHA256
+  RSA-SHA3-224 => SHA3-224
+  RSA-SHA3-256 => SHA3-256
+... (完整列表保存在 supported_digests.txt)
+
+===========================================
+生成的文件列表
+===========================================
+当前目录: /root/openssl/openssl_test
+文件列表:
+total 68
+drwxr-xr-x 2 root root 4096 Jun  5 03:15 .
+drwxr-xr-x 3 root root 4096 Jun  5 03:15 ..
+-rw-r--r-- 1 root root   14 Jun  5 03:15 decrypted_aes.txt
+-rw-r--r-- 1 root root   32 Jun  5 03:15 encrypted_aes.bin
+-rw-r--r-- 1 root root   49 Jun  5 03:15 hash_md5.txt
+-rw-r--r-- 1 root root   58 Jun  5 03:15 hash_sha1.txt
+-rw-r--r-- 1 root root   86 Jun  5 03:15 hash_sha256.txt
+-rw-r--r-- 1 root root   14 Jun  5 03:15 plain.txt
+-rw------- 1 root root 1704 Jun  5 03:15 rsa_private.pem
+-rw-r--r-- 1 root root  451 Jun  5 03:15 rsa_public.pem
+-rw-r--r-- 1 root root   15 Jun  5 03:15 secret_decrypted.txt
+-rw-r--r-- 1 root root  256 Jun  5 03:15 secret_encrypted.bin
+-rw-r--r-- 1 root root   15 Jun  5 03:15 secret.txt
+-rw-r--r-- 1 root root 8623 Jun  5 03:15 supported_ciphers.txt
+-rw-r--r-- 1 root root 2503 Jun  5 03:15 supported_digests.txt
+
+===========================================
+测试完成
+===========================================
+完成时间: Thu Jun  5 03:15:09 AM UTC 2025
+[✔] 测试结果已保存
