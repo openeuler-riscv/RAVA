@@ -1,0 +1,8 @@
+测试时间: 2025-06-17 10:18:02
+操作系统: openEuler 25.03
+内核版本: 6.6.0-72.6.0.56.oe2503.riscv64
+CPU信息: 
+CPU核心数: 4
+内存大小: 7.5Gi
+stress-ng版本: stress-ng, version 0.17.03 (gcc 12.3.1, riscv64 Linux 6.6.0-72.6.0.56.oe2503.riscv64)
+

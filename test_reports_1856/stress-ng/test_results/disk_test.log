@@ -1,0 +1,14 @@
+stress-ng: info:  [2110] setting to a 1 min, 0 secs run per stressor
+stress-ng: info:  [2110] dispatching hogs: 1 hdd
+stress-ng: metrc: [2110] stressor       bogo ops real time  usr time  sys time   bogo ops/s     bogo ops/s CPU used per       RSS Max
+stress-ng: metrc: [2110]                           (secs)    (secs)    (secs)   (real time) (usr+sys time) instance (%)          (KB)
+stress-ng: metrc: [2110] hdd                6650     60.09      1.05      7.61       110.67         768.05        14.41          1888
+stress-ng: metrc: [2110] miscellaneous metrics:
+stress-ng: metrc: [2110] hdd                    0.00 MB/sec read rate (harmonic mean of 1 instance)
+stress-ng: metrc: [2110] hdd                    7.07 MB/sec write rate (harmonic mean of 1 instance)
+stress-ng: metrc: [2110] hdd                    7.07 MB/sec read/write combined rate (harmonic mean of 1 instance)
+stress-ng: info:  [2110] skipped: 0
+stress-ng: info:  [2110] passed: 1: hdd (1)
+stress-ng: info:  [2110] failed: 0
+stress-ng: info:  [2110] metrics untrustworthy: 0
+stress-ng: info:  [2110] successful run completed in 1 min, 0.11 secs
