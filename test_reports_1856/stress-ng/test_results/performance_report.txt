@@ -1,0 +1,57 @@
+========== stress-ng 性能测试报告 ==========
+生成时间: 2025-06-17 05:29:47
+测试目录: test_results/2025-06-17
+
+=== 测试环境信息 ===
+测试时间: 2025-06-17 10:18:02
+操作系统: openEuler 25.03
+内核版本: 6.6.0-72.6.0.56.oe2503.riscv64
+CPU信息: 
+CPU核心数: 4
+内存大小: 7.5Gi
+stress-ng版本: stress-ng, version 0.17.03 (gcc 12.3.1, riscv64 Linux 6.6.0-72.6.0.56.oe2503.riscv64)
+
+
+=== 测试完成状态 ===
+✓ cpu 测试完成
+✓ memory 测试完成
+✓ disk 测试完成
+✓ mixed 测试完成
+
+=== stress-ng 性能指标 ===
+--- cpu 测试性能 ---
+
+--- memory 测试性能 ---
+
+--- disk 测试性能 ---
+  stress-ng: metrc: [2110] hdd                    0.00 MB/sec read rate (harmonic mean of 1 instance)
+  stress-ng: metrc: [2110] hdd                    7.07 MB/sec write rate (harmonic mean of 1 instance)
+  stress-ng: metrc: [2110] hdd                    7.07 MB/sec read/write combined rate (harmonic mean of 1 instance)
+
+--- mixed 测试性能 ---
+  stress-ng: metrc: [2129] hdd                    0.00 MB/sec read rate (harmonic mean of 1 instance)
+  stress-ng: metrc: [2129] hdd                  198.06 MB/sec write rate (harmonic mean of 1 instance)
+  stress-ng: metrc: [2129] hdd                  198.06 MB/sec read/write combined rate (harmonic mean of 1 instance)
+
+=== 系统监控指标 ===
+--- cpu 测试监控数据 ---
+  CPU使用率: 平均 96.98%, 峰值 100.00%
+  内存使用率: 平均 4.94%, 峰值 4.95%
+  磁盘I/O: 平均 读取0.08MB/s, 写入0.01MB/s; 峰值 读取2.61MB/s, 写入0.07MB/s
+
+--- memory 测试监控数据 ---
+  CPU使用率: 平均 49.93%, 峰值 54.11%
+  内存使用率: 平均 18.41%, 峰值 30.34%
+  磁盘I/O: 平均 读取0.03MB/s, 写入0.01MB/s; 峰值 读取1.95MB/s, 写入0.07MB/s
+
+--- disk 测试监控数据 ---
+  CPU使用率: 平均 32.98%, 峰值 96.97%
+  内存使用率: 平均 5.21%, 峰值 5.77%
+  磁盘I/O: 平均 读取0.08MB/s, 写入9.19MB/s; 峰值 读取2.28MB/s, 写入10.53MB/s
+
+--- mixed 测试监控数据 ---
+  CPU使用率: 平均 98.99%, 峰值 100.00%
+  内存使用率: 平均 11.76%, 峰值 18.71%
+  磁盘I/O: 平均 读取0.03MB/s, 写入111.12MB/s; 峰值 读取1.32MB/s, 写入625.78MB/s
+
+============================================
