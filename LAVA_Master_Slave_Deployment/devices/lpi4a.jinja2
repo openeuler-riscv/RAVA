@@ -1,0 +1,12 @@
+{% extends 'lpi4a-uboot.jinja2' %}
+
+{% set device_type = 'lpi4a' %}
+
+{% set connection_list = ['uart0'] %}
+{% set connection_commands = {'uart0': 'telnet localhost 15201'} %}
+{% set connection_tags = {'uart0': ['primary', 'telnet']} %}
+
+{% set power_off_command = '/home/zhtianyu/lpi4a/power_off' %}
+{% set power_on_command = '/home/zhtianyu/lpi4a/power_on' %}
+{% set hard_reset_command = '/home/zhtianyu/lpi4a/hard_reset' %}
+{% set soft_reset_command = '/home/zhtianyu/lpi4a/hard_reset' %}
