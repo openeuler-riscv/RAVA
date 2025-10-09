@@ -33,9 +33,6 @@ sudo make install
 filebench -h
 ```
 
-执行 `filebench -h` 显示帮助信息，说明安装成功。
-编译期间出现的 `autoconf` 宏过时警告可忽略。
-
 ---
 
 ## 3. 功能测试与结果

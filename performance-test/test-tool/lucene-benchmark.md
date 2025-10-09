@@ -27,7 +27,7 @@ echo 'export JAVA_HOME=/opt/jdk/jdk-25' | sudo tee /etc/profile.d/java25.sh
 echo 'export PATH=$JAVA_HOME/bin:$PATH' | sudo tee -a /etc/profile.d/java25.sh
 source /etc/profile.d/java25.sh
 
-# 3) 让 Gradle 强制使用 JDK 25（避免误用旧 JDK）
+# 让 Gradle 强制使用 JDK 25（避免误用旧 JDK）
 mkdir -p ~/.gradle
 echo "org.gradle.java.home=$JAVA_HOME" > ~/.gradle/gradle.properties
 
