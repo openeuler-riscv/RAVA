@@ -1,0 +1,21 @@
+{% extends 'base-uboot.jinja2' %}
+
+{% set uboot_mkimage_arch = 'riscv' %}
+
+{% set console_device = console_device|default('ttyS0') %} 
+{% set baud_rate = baud_rate|default(115200) %} 
+
+{% set boot_character_delay = 100 %}
+
+{% set booti_kernel_addr = '0x00200000' %} 
+{% set booti_dtb_addr = '0x03800000' %}       
+{% set booti_ramdisk_addr = '0x06000000' %} 
+
+{% set interrupt_prompt = interrupt_prompt | default('Enter an option') %}
+{% set interrupt_char = interrupt_char | default('6') %}
+
+{% set bootloader_prompt = bootloader_prompt|default('root@mango') %}
+
+{% set uboot_final_message = uboot_final_message | default("Linux version") %}
+
+{% set kernel_start_message = kernel_start_message | default('openEuler') %}
