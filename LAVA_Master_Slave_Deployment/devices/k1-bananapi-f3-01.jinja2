@@ -1,0 +1,20 @@
+{% extends 'spacemit-k1-bananapi-f3.jinja2' %}
+
+{% set device_type = 'spacemit-k1-bananapi-f3' %} 
+
+{% set connection_list = ['uart0'] %} 
+{% set connection_commands = {'uart0': 'telnet localhost 15203'} %} 
+{% set connection_tags = {'uart0': ['primary', 'telnet']} %} 
+
+{% set static_info = [{'FILE_SERVER_IP': "10.213.5.176"}] %}
+
+{% set power_off_command = '/home/zhtianyu/bpi_f3/power_off' %} 
+{% set power_on_command = '/home/zhtianyu/bpi_f3/power_on' %} 
+{% set hard_reset_command = '/home/zhtianyu/bpi_f3/hard_reset' %} 
+{% set soft_reset_command = '/home/zhtianyu/bpi_f3/hard_reset' %}
+
+{% set pxelinux_generate = '/home/zhtianyu/bpi_f3/generate_pxelinux' %}
+{% set pre_os_command = '/home/zhtianyu/bpi_f3/reset_nfsrootfs' %}
+
+{% set user_commands = {'pxelinux_generate': {'do': '/home/zhtianyu/bpi_f3/generate_pxelinux', 'undo': 'echo "noop"'},
+                        'pre_os_command': {'do': '/home/zhtianyu/bpi_f3/reset_nfsrootfs', 'undo': 'echo "noop"'}} %}
