@@ -1,0 +1,18 @@
+{# device_type = "spacemit-k1-bananapi-f3" #}
+{% extends 'base-uboot.jinja2' %}
+
+{% set uboot_mkimage_arch = 'riscv' %}
+
+{% set bootloader_prompt = bootloader_prompt|default('=>') %}
+{% set boot_character_delay = boot_character_delay | default(10) %}
+
+{% set console_device = console_device|default('ttySP0') %}
+{% set baud_rate = baud_rate|default(115200) %}
+
+{% set booti_kernel_addr  = '0x11000000' %}
+{% set booti_ramdisk_addr = '0x21000000' %}
+{% set booti_dtb_addr     = '0x31000000' %}
+
+{% set extra_kernel_args = "earlycon=sbi rootwait raid=noautodetect selinux=0 loglevel=7" %}
+
+{% set uboot_tftp_commands = [] %}
