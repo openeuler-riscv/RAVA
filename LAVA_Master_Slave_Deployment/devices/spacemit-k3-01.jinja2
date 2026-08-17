@@ -1,0 +1,10 @@
+{% extends 'spacemit-k3.jinja2' %}
+
+{% set connection_list = ['uart0'] %}
+{% set connection_commands = {'uart0': 'telnet localhost 15203'} %}
+{% set connection_tags = {'uart0': ['primary', 'telnet']} %}
+
+{% set power_on_command = '/home/zhtianyu/spacemit-k3/power_on' %}
+{% set power_off_command = '/home/zhtianyu/spacemit-k3/power_off' %}
+{% set hard_reset_command = '/home/zhtianyu/spacemit-k3/hard_reset' %}
+{% set soft_reboot_command = '/home/zhtianyu/spacemit-k3/hard_reset' %}

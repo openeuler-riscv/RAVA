@@ -1,0 +1,31 @@
+{# device_type = "spacemit-k3" #}
+{% extends 'base-uboot.jinja2' %}
+
+{% set uboot_mkimage_arch = 'riscv' %}
+{% set uboot_ramdisk_format = 'raw' %}
+
+{% set bootloader_prompt = bootloader_prompt|default('=>') %}
+{% set boot_character_delay = boot_character_delay|default(100) %}
+{% set interrupt_char = interrupt_char|default(' ') %}
+{% set uboot_interrupt_newline = uboot_interrupt_newline|default(False) %}
+
+{% set console_device = console_device|default('ttyS0') %}
+{% set baud_rate = baud_rate|default(115200) %}
+
+{% set uboot_initrd_high = '0xffffffffffffffff' %}
+{% set uboot_fdt_high = '0xffffffffffffffff' %}
+
+{% set booti_kernel_addr = '0x140000000' %}
+{% set booti_ramdisk_addr = '0x130000000' %}
+{% set booti_dtb_addr = '0x138000000' %}
+
+{% set extra_nfsroot_args = ',vers=4.1,nolock' %}
+{% set extra_kernel_args = 'earlycon=sbi rootwait rw rd.multipath=0 boot_mode=nor loglevel=8 random.trust_bootloader=1 unaligned_scalar_speed=fast unaligned_vector_speed=fast selinux=0' %}
+
+{% set uboot_tftp_commands = [
+    "tftpboot {KERNEL_ADDR} {KERNEL}",
+    "tftpboot {RAMDISK_ADDR} {RAMDISK}",
+    "setenv initrd_size ${filesize}",
+    "tftpboot {DTB_ADDR} {DTB}"]
+-%}
+
