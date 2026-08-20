@@ -1,21 +1,92 @@
-{% extends 'base-uboot.jinja2' %}
+{# device_type = "sg2042" #}
+{% extends 'base.jinja2' %}
 
-{% set uboot_mkimage_arch = 'riscv' %}
+{% set boot_character_delay = 200 %}
+{% set action_timeout_bootloader_commands = 20 %}
+{% set console_device = console_device|default('ttyS0') %}
+{% set baud_rate = baud_rate|default(115200) %}
+{% set kernel_start_message = kernel_start_message|default('openEuler') %}
+{% set uboot_final_message = uboot_final_message|default('Linux version') %}
+{% set uboot_error_messages = [
+    'Netboot failed.*',
+    'Failed to try parsing pxelinux config.*',
+    'Failed to load.*',
+    'Failed to exec.*',
+    'Nothing to boot.*',
+    '.*network is unreachable.*',
+    '.*File not found.*',
+    'Exception: \\*\\*/bbin/(dhclient|mkdir|echo|cat|pxeboot) exited with [1-9][0-9]*\\*\\*'
+] %}
 
-{% set console_device = console_device|default('ttyS0') %} 
-{% set baud_rate = baud_rate|default(115200) %} 
+{% set sg2042_required_kernel_args =
+    'console=' + console_device + ',' + baud_rate|string +
+    ' root=/dev/nfs rw' +
+    ' nfsroot={NFS_SERVER_IP}:{NFSROOTFS},tcp,hard,vers=4.2,sec=sys' +
+    ' rootwait earlycon ip=dhcp selinux=0'
+%}
+{% set sg2042_kernel_args =
+    sg2042_required_kernel_args + ' ' + extra_kernel_args|default('')
+%}
+{% set sg2042_tmpdir = '/tmp/lava-{LAVA_JOB_ID}' %}
+{% set sg2042_pxelinux_dir = sg2042_tmpdir + '/pxelinux.cfg' %}
+{% set sg2042_pxelinux_config = sg2042_pxelinux_dir + '/default' %}
+{% set sg2042_pxelinux_append =
+    "'append " + (sg2042_kernel_args|trim|replace("'", "''")) + "'"
+%}
+{% set sg2042_commands = [
+    '/bbin/dhclient -ipv6=false eth0',
+    '/bbin/mkdir -p ' + sg2042_pxelinux_dir,
+    "/bbin/echo -E 'title openEuler Boot Menu' > " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'prompt 0' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'timeout 3' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'default LAVA' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'label LAVA' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'menu label openEuler | LAVA Milk-V Pioneer' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'linux tftp://{SERVER_IP}/{KERNEL}' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'initrd tftp://{SERVER_IP}/{RAMDISK}' >> " + sg2042_pxelinux_config,
+    "/bbin/echo -E 'fdt tftp://{SERVER_IP}/{DTB}' >> " + sg2042_pxelinux_config,
+    '/bbin/echo -E ' + sg2042_pxelinux_append + ' >> ' + sg2042_pxelinux_config,
+    '/bbin/cat ' + sg2042_pxelinux_config,
+    '/bbin/pxeboot -ipv6=false -v -file file://' + sg2042_tmpdir + '/pxelinux.0'
+] %}
 
-{% set boot_character_delay = 100 %}
+{% block parameters %}
+{{ super() }}
+  image:
+    kernel: '0x00200000'
+    ramdisk: '0x06000000'
+    dtb: '0x03800000'
+  booti:
+    kernel: '0x00200000'
+    ramdisk: '0x06000000'
+    dtb: '0x03800000'
+{% endblock parameters %}
 
-{% set booti_kernel_addr = '0x00200000' %} 
-{% set booti_dtb_addr = '0x03800000' %}       
-{% set booti_ramdisk_addr = '0x06000000' %} 
-
-{% set interrupt_prompt = interrupt_prompt | default('Enter an option') %}
-{% set interrupt_char = interrupt_char | default('6') %}
-
-{% set bootloader_prompt = bootloader_prompt|default('root@mango') %}
-
-{% set uboot_final_message = uboot_final_message | default("Linux version") %}
-
-{% set kernel_start_message = kernel_start_message | default('openEuler') %}
+{% block body %}
+actions:
+  deploy:
+    parameters:
+      add_header: raw
+      mkimage_arch: riscv
+      append_dtb: false
+      use_xip: false
+    connections:
+      serial:
+    methods:
+      tftp:
+  boot:
+    connections:
+      serial:
+    methods:
+      u-boot:
+        parameters:
+          bootloader_prompt: root@mango
+          interrupt_prompt: Enter an option
+          interrupt_char: '6'
+          needs_interrupt: true
+        pxeboot:
+          commands:
+{% for command in sg2042_commands %}
+            - {{ command|yaml_quote }}
+{% endfor %}
+{% endblock body %}
